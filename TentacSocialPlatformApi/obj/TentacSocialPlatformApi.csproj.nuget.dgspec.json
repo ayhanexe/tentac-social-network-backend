@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj": {}
+    "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj": {
+    "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
+        "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
         "projectName": "TentacSocialPlatformApi",
-        "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
+        "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
         "packagesPath": "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi\\obj\\",
+        "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
