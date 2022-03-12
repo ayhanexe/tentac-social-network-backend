@@ -1,23 +1,145 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj": {}
+    "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj": {
+    "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
-        "projectName": "TentacSocialPlatformApi",
-        "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
-        "packagesPath": "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\obj\\",
+        "projectUniqueName": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj",
+        "projectName": "Authentication",
+        "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj",
+        "packagesPath": "C:\\Users\\0x21106\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Aykhan.abdullayev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\0x21106\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj": {
+                "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj"
+              },
+              "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.16.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Constants\\Constants.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Constants\\Constants.csproj",
+        "projectName": "Constants",
+        "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Constants\\Constants.csproj",
+        "packagesPath": "C:\\Users\\0x21106\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Constants\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\0x21106\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj",
+        "projectName": "DomainModels",
+        "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj",
+        "packagesPath": "C:\\Users\\0x21106\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\0x21106\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,7 +165,179 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj",
+        "projectName": "Repository",
+        "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\0x21106\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\0x21106\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Constants\\Constants.csproj": {
+                "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Constants\\Constants.csproj"
+              },
+              "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj": {
+                "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.15, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
+        "projectName": "TentacSocialPlatformApi",
+        "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
+        "packagesPath": "C:\\Users\\0x21106\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\0x21106\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj": {
+                "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj"
+              },
+              "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
             "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[5.6.3, )"
             }
@@ -66,7 +360,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TentacSocialPlatformApi", "TentacSocialPlatformApi\TentacSocialPlatformApi.csproj", "{DBAA4DB5-2802-468E-9892-F206CB711D28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TentacSocialPlatformApi", "TentacSocialPlatformApi\TentacSocialPlatformApi.csproj", "{DBAA4DB5-2802-468E-9892-F206CB711D28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{35203E0E-13AD-47AB-9EFA-B89E9D7160A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModels", "DomainModels\DomainModels.csproj", "{7F0605B4-2230-44F6-9242-012175900B18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "Authentication\Authentication.csproj", "{8873FC92-9F7F-4033-AE2A-F63B9E05BFF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constants", "Constants\Constants.csproj", "{625C02F0-5163-451A-891C-4D2D6140F2ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{DBAA4DB5-2802-468E-9892-F206CB711D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBAA4DB5-2802-468E-9892-F206CB711D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBAA4DB5-2802-468E-9892-F206CB711D28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35203E0E-13AD-47AB-9EFA-B89E9D7160A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35203E0E-13AD-47AB-9EFA-B89E9D7160A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35203E0E-13AD-47AB-9EFA-B89E9D7160A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35203E0E-13AD-47AB-9EFA-B89E9D7160A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F0605B4-2230-44F6-9242-012175900B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F0605B4-2230-44F6-9242-012175900B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F0605B4-2230-44F6-9242-012175900B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F0605B4-2230-44F6-9242-012175900B18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8873FC92-9F7F-4033-AE2A-F63B9E05BFF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8873FC92-9F7F-4033-AE2A-F63B9E05BFF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8873FC92-9F7F-4033-AE2A-F63B9E05BFF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8873FC92-9F7F-4033-AE2A-F63B9E05BFF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625C02F0-5163-451A-891C-4D2D6140F2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625C02F0-5163-451A-891C-4D2D6140F2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625C02F0-5163-451A-891C-4D2D6140F2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625C02F0-5163-451A-891C-4D2D6140F2ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,12 @@
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\bin\Debug\net5.0\DomainModels.deps.json
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\bin\Debug\net5.0\DomainModels.dll
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\bin\Debug\net5.0\ref\DomainModels.dll
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\bin\Debug\net5.0\DomainModels.pdb
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.csproj.AssemblyReference.cache
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.AssemblyInfoInputs.cache
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.AssemblyInfo.cs
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.csproj.CoreCompileInputs.cache
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.dll
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\ref\DomainModels.dll
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.pdb
