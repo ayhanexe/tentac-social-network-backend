@@ -292,6 +292,30 @@
           "lib/net5.0/Microsoft.Extensions.Identity.Stores.dll": {}
         }
       },
+      "Microsoft.Extensions.Localization/5.0.15": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Localization.Abstractions": "5.0.15",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.Localization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.Localization.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Localization.Abstractions/5.0.15": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Extensions.Logging/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -1450,6 +1474,9 @@
       "Constants/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.Extensions.Localization": "5.0.15"
+        },
         "compile": {
           "bin/placeholder/Constants.dll": {}
         },
@@ -1461,13 +1488,28 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.15"
+          "Localization": "1.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.15",
+          "Microsoft.Extensions.Localization": "5.0.15"
         },
         "compile": {
           "bin/placeholder/DomainModels.dll": {}
         },
         "runtime": {
           "bin/placeholder/DomainModels.dll": {}
+        }
+      },
+      "Localization/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.Extensions.Localization": "5.0.15"
+        },
+        "compile": {
+          "bin/placeholder/Localization.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Localization.dll": {}
         }
       },
       "Repository/1.0.0": {
@@ -1478,7 +1520,8 @@
           "Constants": "1.0.0",
           "DomainModels": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.15",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.15"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.15",
+          "Microsoft.Extensions.Localization": "5.0.15"
         },
         "compile": {
           "bin/placeholder/Repository.dll": {}
@@ -1935,6 +1978,44 @@
         "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.xml",
         "microsoft.extensions.identity.stores.5.0.15.nupkg.sha512",
         "microsoft.extensions.identity.stores.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Localization/5.0.15": {
+      "sha512": "pg2FnaJ/jiM5QBSEA7RoEcPKBLZSFlnlXrjvE3nI6wzwAESivL/Yv+D1pq544V4cTZhjmTUgN9WYNWHw/NXUeQ==",
+      "type": "package",
+      "path": "microsoft.extensions.localization/5.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Localization.dll",
+        "lib/net461/Microsoft.Extensions.Localization.xml",
+        "lib/net5.0/Microsoft.Extensions.Localization.dll",
+        "lib/net5.0/Microsoft.Extensions.Localization.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Localization.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Localization.xml",
+        "microsoft.extensions.localization.5.0.15.nupkg.sha512",
+        "microsoft.extensions.localization.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Localization.Abstractions/5.0.15": {
+      "sha512": "wspVh7Um/AMg5oD1yisoo6NvkDEEEOB3upVKKn/L1hdJIPS55bInS5EehteaFC8BSSw59csbmA1+u7MR4wsubA==",
+      "type": "package",
+      "path": "microsoft.extensions.localization.abstractions/5.0.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Localization.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Localization.Abstractions.xml",
+        "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.dll",
+        "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Localization.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Localization.Abstractions.xml",
+        "microsoft.extensions.localization.abstractions.5.0.15.nupkg.sha512",
+        "microsoft.extensions.localization.abstractions.nuspec"
       ]
     },
     "Microsoft.Extensions.Logging/5.0.0": {
@@ -5508,6 +5589,11 @@
       "path": "../DomainModels/DomainModels.csproj",
       "msbuildProject": "../DomainModels/DomainModels.csproj"
     },
+    "Localization/1.0.0": {
+      "type": "project",
+      "path": "../Localization/Localization.csproj",
+      "msbuildProject": "../Localization/Localization.csproj"
+    },
     "Repository/1.0.0": {
       "type": "project",
       "path": "../Repository/Repository.csproj",
@@ -5518,6 +5604,7 @@
     "net5.0": [
       "DomainModels >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.15",
+      "Microsoft.Extensions.Localization >= 5.0.15",
       "Repository >= 1.0.0",
       "System.IdentityModel.Tokens.Jwt >= 6.16.0"
     ]
@@ -5569,6 +5656,10 @@
         "targetAlias": "net5.0",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[5.0.15, )"
+          },
+          "Microsoft.Extensions.Localization": {
             "target": "Package",
             "version": "[5.0.15, )"
           },

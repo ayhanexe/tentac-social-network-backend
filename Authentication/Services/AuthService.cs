@@ -71,17 +71,14 @@ namespace Authentication.Services
         {
             var response = new Response()
             {
-                Messages = new List<IError>()
+                Message = null
             };
             var user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user != null)
             {
                 response.HasError = true;
-                response.Messages = new List<IError>()
-                {
-                    new Error() { Message = $"This email already registered! `{model.Email}`" }
-                };
+                response.Message = $"This email already registered! `{model.Email}`";
                 return response;
             }
             else
@@ -91,10 +88,7 @@ namespace Authentication.Services
                 if (user != null)
                 {
                     response.HasError = true;
-                    response.Messages = new List<IError>()
-                    {
-                        new Error() { Message = $"This username already registered! `{model.Username}`" }
-                    };
+                    response.Message = $"This username already registered! `{model.Username}`";
                     return response;
 
                 }
@@ -107,7 +101,7 @@ namespace Authentication.Services
             if (emailValidation.HasError)
             {
                 response.HasError = true;
-                response.Messages.Add(new Error() { Message = $"{emailValidation.Messages[0].Message}" });
+                response.Message = $"{emailValidation.Message}";
                 return response;
 
             }
@@ -116,10 +110,7 @@ namespace Authentication.Services
             {
                 response.HasError = true;
 
-                response.Messages = new List<IError>()
-                {
-                    new Error() { Message = $"{usernameValidation.Messages[0].Message}" }
-                };
+                response.Message = $"{usernameValidation.Message}";
 
                 return response;
 
@@ -130,10 +121,7 @@ namespace Authentication.Services
             {
                 response.HasError = true;
 
-                response.Messages = new List<IError>()
-                {
-                    new Error() { Message = $"{passwordValidation.Messages[0].Message}" }
-                };
+                response.Message = $"{passwordValidation.Message}";
 
                 return response;
 
@@ -148,24 +136,20 @@ namespace Authentication.Services
 
             IdentityResult result = await _userManager.CreateAsync(userModel, model.Password);
             await _userManager.AddToRoleAsync(userModel, RoleConstants.User);
+            await _context.SaveChangesAsync();
 
             if (!result.Succeeded)
             {
                 foreach (var item in result.Errors)
                 {
-                    response.Messages.Add(new Error()
-                    {
-                        Message = item.Description
-                    });
+                    response.Message = item.Description;
                 }
             }
-
-
 
             return new Response()
             {
                 HasError = false,
-                Messages = null
+                Message = null
             };
         }
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vDhGEVGVgymoBhI5FOzki3hk4gePFdnVTAtmdS9JKxwqX1N4Fo9PAF1YS13TgxFGuSYg3jYXIeSADxiZ1n8LGg==",
+  "dgSpecHash": "1Wd+gN9fzAPDW3ggJRYd2UOJ4kOx7IYp+/+Zg8EVoFxi3zb/UiOhXbFDSypdvHCX6puMGeoG5oLyIFfVy0tlHQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj",
   "expectedPackageFiles": [
@@ -18,6 +18,8 @@
     "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.identity.core\\5.0.15\\microsoft.extensions.identity.core.5.0.15.nupkg.sha512",
     "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.identity.stores\\5.0.15\\microsoft.extensions.identity.stores.5.0.15.nupkg.sha512",
+    "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.localization\\5.0.15\\microsoft.extensions.localization.5.0.15.nupkg.sha512",
+    "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\5.0.15\\microsoft.extensions.localization.abstractions.5.0.15.nupkg.sha512",
     "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
     "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",

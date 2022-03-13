@@ -17,3 +17,8 @@ C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\obj\Debug\net5.0\Authentication.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\obj\Debug\net5.0\ref\Authentication.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\obj\Debug\net5.0\Authentication.pdb
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\bin\Debug\net5.0\Localization.dll
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\bin\Debug\net5.0\Localization.pdb
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\bin\Debug\net5.0\tr\Localization.resources.dll
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\bin\Debug\net5.0\az\Localization.resources.dll
+C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\bin\Debug\net5.0\en\Localization.resources.dll

@@ -9,16 +9,16 @@ namespace DomainModels.Dtos
 {
     public class UserDto
     {
-        [Required, MaxLength(16), MinLength(6)]
+        [Required(ErrorMessage = "ValueIsRequired"), MaxLength(16), MinLength(6)]
         public string Username { get; set; }
 
-        [Required, EmailAddress, MaxLength(100), DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "ValueIsRequired"), EmailAddress, MaxLength(100), DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required, DataType(DataType.Password)]
+        [Required(ErrorMessage = "ValueIsRequired"), DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required, DataType(DataType.Password), Compare(nameof(Password))]
+        [Required(ErrorMessage = "ValueIsRequired"), DataType(DataType.Password), Compare(nameof(Password))]
         public string PasswordAgain { get; set; }
     }
 }

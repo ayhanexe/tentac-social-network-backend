@@ -47,7 +47,7 @@ namespace TentacSocialPlatformApi.Controllers
                 
                 if(response.HasError)
                 {
-                    return StatusCode(StatusCodes.Status400BadRequest, response.Messages[0]);
+                    return StatusCode(StatusCodes.Status400BadRequest, response.Message);
                 }
 
                 return Ok();
@@ -56,7 +56,6 @@ namespace TentacSocialPlatformApi.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-            return Ok(entity);
         }
 
         [HttpPut("{id}")]

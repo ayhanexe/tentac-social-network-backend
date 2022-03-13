@@ -1,10 +1,12 @@
 using Authentication.Models;
 using Authentication.Services;
 using DomainModels.Entities;
+using Localization.Localization.DataAnnotations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +17,9 @@ using Repository.DAL;
 using Repository.Data.Implementation.EfCore;
 using Repository.Mapper;
 using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Reflection;
 using System.Text;
 
 namespace TentacSocialPlatformApi
@@ -31,6 +36,18 @@ namespace TentacSocialPlatformApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:44351", "http://localhost:4200", "http://localhost", "http://127.0.0.1")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -87,7 +104,21 @@ namespace TentacSocialPlatformApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TentacSocialPlatformApi", Version = "v1" });
             });
 
-            services.AddControllers();
+
+            services.AddLocalization();
+            services.AddRequestLocalization(x =>
+            {
+                x.DefaultRequestCulture = new RequestCulture("tr");
+                x.ApplyCurrentCultureToResponseHeaders = true;
+                x.SupportedCultures = new List<CultureInfo> { new("en"), new("tr"), new("az") };
+                x.SupportedUICultures = new List<CultureInfo> { new("en"), new("tr"), new("az") };
+            });
+
+            services.AddControllers()
+                .AddDataAnnotationsLocalization(o =>
+                {
+                    o.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(DataAnnotations));
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -99,6 +130,16 @@ namespace TentacSocialPlatformApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TentacSocialPlatformApi v1"));
             }
+
+            app.UseRequestLocalization();
+
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
 
             app.UseHttpsRedirection();
 

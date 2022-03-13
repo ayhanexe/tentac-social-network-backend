@@ -8,7 +8,7 @@ namespace Authentication.Config
 {
     public class Response : IResponse
     {
-        public List<IError> Messages { get; set; }
+        public string Message { get; set; }
         public bool HasError { get; set; }
     }
 }

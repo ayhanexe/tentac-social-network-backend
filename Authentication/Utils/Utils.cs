@@ -23,7 +23,7 @@ namespace Authentication.Utils
                     return new Response()
                     {
                         HasError = false,
-                        Messages = null
+                        Message = null
                     };
                 }
                 catch (Exception ex)
@@ -31,10 +31,7 @@ namespace Authentication.Utils
                     return new Response()
                     {
                         HasError = true,
-                        Messages = new List<IError>()
-                        {
-                            new Error() { Message = "Invalid email!" }
-                        }
+                        Message = "Invalid email!"
                     };
                 }
             }
@@ -43,10 +40,7 @@ namespace Authentication.Utils
                 return new Response()
                 {
                     HasError = true,
-                    Messages = new List<IError>()
-                        {
-                            new Error() { Message = "Invalid email!" }
-                        }
+                    Message = "Invalid email!"
                 };
             }
         }
@@ -62,7 +56,7 @@ namespace Authentication.Utils
                         return new Response()
                         {
                             HasError = false,
-                            Messages = null
+                            Message = null
                         };
                     }
                     else
@@ -70,10 +64,7 @@ namespace Authentication.Utils
                         return new Response()
                         {
                             HasError = true,
-                            Messages = new List<IError>()
-                        {
-                            new Error() {Message= $"Username's length must be lower than {Options.MaximumUsernameLength} characters."}
-                        }
+                            Message = $"Username's length must be lower than {Options.MaximumUsernameLength} characters."
                         };
                     }
                 }
@@ -82,10 +73,7 @@ namespace Authentication.Utils
                     return new Response()
                     {
                         HasError = true,
-                        Messages = new List<IError>()
-                        {
-                            new Error() {Message= $"Username's length must be greater than {Options.MinimumUsernameLength} characters."}
-                        }
+                        Message = $"Username's length must be greater than {Options.MinimumUsernameLength} characters."
                     };
                 }
             }
@@ -94,11 +82,8 @@ namespace Authentication.Utils
                 return new Response()
                 {
                     HasError = true,
-                    Messages = new List<IError>()
-                        {
-                            new Error() { Message = "Invalid username!" }
-                        }
-                }; ;
+                    Message = "Invalid username!"
+                };
             }
         }
 
@@ -113,7 +98,7 @@ namespace Authentication.Utils
                         return new Response()
                         {
                             HasError = false,
-                            Messages = null
+                            Message = null
                         };
                     }
                     else
@@ -121,10 +106,7 @@ namespace Authentication.Utils
                         return new Response()
                         {
                             HasError = true,
-                            Messages = new List<IError>()
-                        {
-                            new Error() {Message= $"Password's length must be lower than {Options.MaximumPasswordLength} characters."}
-                        }
+                            Message = $"Password's length must be lower than {Options.MaximumPasswordLength} characters."
                         };
                     }
                 }
@@ -133,10 +115,7 @@ namespace Authentication.Utils
                     return new Response()
                     {
                         HasError = true,
-                        Messages = new List<IError>()
-                        {
-                            new Error() {Message= $"Password's length must be greater than {Options.MinimumPasswordLength} characters."}
-                        }
+                        Message = $"Password's length must be greater than {Options.MinimumPasswordLength} characters."
                     };
                 }
             }
@@ -145,10 +124,7 @@ namespace Authentication.Utils
                 return new Response()
                 {
                     HasError = true,
-                    Messages = new List<IError>()
-                        {
-                            new Error() { Message = "Invalid password!" }
-                        }
+                    Message = "Invalid password!"
                 }; ;
             }
         }

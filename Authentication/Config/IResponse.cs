@@ -9,7 +9,7 @@ namespace Authentication.Config
 
     public interface IResponse
     {
-        public List<IError> Messages { get; set; }
+        public string Message { get; set; }
         public bool HasError { get; set; }
     }
 }
