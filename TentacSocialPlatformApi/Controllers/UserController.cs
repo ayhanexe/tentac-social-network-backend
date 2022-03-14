@@ -2,15 +2,12 @@
 using Authentication.Dtos;
 using Authentication.Services;
 using AutoMapper;
-using Constants;
-using DomainModels.Dtos;
 using DomainModels.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Data.Implementation.EfCore;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using TentacSocialPlatformApi.Controllers.Abstraction;
 
