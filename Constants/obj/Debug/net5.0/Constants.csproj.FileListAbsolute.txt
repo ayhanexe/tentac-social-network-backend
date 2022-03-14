@@ -10,3 +10,15 @@ C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Constants\obj\Debug\net5.0\Constants.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Constants\obj\Debug\net5.0\ref\Constants.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Constants\obj\Debug\net5.0\Constants.pdb
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\bin\Debug\net5.0\Constants.deps.json
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\bin\Debug\net5.0\Constants.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\bin\Debug\net5.0\Constants.pdb
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\Constants.csproj.AssemblyReference.cache
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\Constants.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\Constants.AssemblyInfoInputs.cache
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\Constants.AssemblyInfo.cs
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\Constants.csproj.CoreCompileInputs.cache
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\Constants.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\refint\Constants.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\Constants.pdb
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Constants\obj\Debug\net5.0\ref\Constants.dll

@@ -250,6 +250,12 @@
           "Localization.dll": {}
         },
         "resources": {
+          "az/Localization.resources.dll": {
+            "locale": "az"
+          },
+          "en/Localization.resources.dll": {
+            "locale": "en"
+          },
           "tr/Localization.resources.dll": {
             "locale": "tr"
           }
