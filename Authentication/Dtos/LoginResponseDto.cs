@@ -8,6 +8,7 @@ namespace Authentication.Dtos
 {
     public class LoginResponseDto
     {
+        public string id { get; set; }
         public string Message { get; set; }
         public bool IsAuthenticated { get; set; }
         public string Username { get; set; }
