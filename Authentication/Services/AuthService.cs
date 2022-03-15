@@ -57,6 +57,7 @@ namespace Authentication.Services
                 authModel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
                 authModel.Email = user.Email;
                 authModel.Username = user.UserName;
+                authModel.id = user.Id;
                 var roleList = await _userManager.GetRolesAsync(user).ConfigureAwait(false);
                 authModel.Roles = roleList.ToList<string>();
                 return authModel;
