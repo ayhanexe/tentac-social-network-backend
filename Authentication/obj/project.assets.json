@@ -1488,6 +1488,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Constants": "1.0.0",
           "Localization": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.15",
           "Microsoft.Extensions.Localization": "5.0.15"
@@ -5610,23 +5611,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Aykhan.a\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\0x21106\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Authentication\\Authentication.csproj",
+      "projectUniqueName": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj",
       "projectName": "Authentication",
-      "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Authentication\\Authentication.csproj",
-      "packagesPath": "C:\\Users\\Aykhan.a\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Authentication\\obj\\",
+      "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj",
+      "packagesPath": "C:\\Users\\0x21106\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Authentication\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Aykhan.a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\0x21106\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5634,17 +5631,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://www.nuget.org/api/v2": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\DomainModels\\DomainModels.csproj": {
-              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\DomainModels\\DomainModels.csproj"
+            "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj": {
+              "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj"
             },
-            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Repository\\Repository.csproj": {
-              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Repository\\Repository.csproj"
+            "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj"
             }
           }
         }
@@ -5687,7 +5684,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -6,8 +6,12 @@ using DomainModels.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Repository.DAL;
 using Repository.Data.Implementation.EfCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TentacSocialPlatformApi.Controllers.Abstraction;
 
@@ -20,13 +24,32 @@ namespace TentacSocialPlatformApi.Controllers
     {
         private readonly EfCoreUserRepository _userRepository;
         private readonly IAuthService _authService;
-        private readonly IMapper _mapper;
+        private readonly AppDbContext _context;
 
-        public UserController(EfCoreUserRepository repository, IMapper mapper, IAuthService authService) : base(repository, mapper)
+        public UserController(EfCoreUserRepository repository, IMapper mapper, IAuthService authService, AppDbContext context) : base(repository, mapper)
         {
             _authService = authService;
             _userRepository = repository;
-            _mapper = mapper;
+            _context = context;
+        }
+
+        [HttpGet]
+        public override async Task<ActionResult<IEnumerable<User>>> Get()
+        {
+            List<User> entities = await _context.Users.Include(u => u.UserWalls).Include(u => u.ProfilePhotos).ToListAsync();
+
+            return entities;
+        }
+
+        [HttpGet("{id}")]
+        public override async Task<ActionResult<User>> Get(string id)
+        {
+            User entity = await _context.Users.Include(u => u.UserWalls).Include(u => u.ProfilePhotos).Where(u => u.Id == id).FirstOrDefaultAsync();
+
+            if (entity == null) return null;
+
+            return entity;
+
         }
 
         [HttpPost]
@@ -41,8 +64,8 @@ namespace TentacSocialPlatformApi.Controllers
             try
             {
                 Response response = await _authService.Register(entity);
-                
-                if(response.HasError)
+
+                if (response.HasError)
                 {
                     return StatusCode(StatusCodes.Status400BadRequest, response.Message);
                 }

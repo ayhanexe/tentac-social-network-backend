@@ -954,6 +954,7 @@
       },
       "DomainModels/1.0.0": {
         "dependencies": {
+          "Constants": "1.0.0",
           "Localization": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.15",
           "Microsoft.Extensions.Localization": "5.0.15"

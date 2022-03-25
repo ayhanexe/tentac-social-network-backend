@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace DomainModels.Entities
 {
-    public interface IEntity<TId>
+    public interface IEntity<T>
     {
-        public TId Id { get; set; }
+        public T Id { get; set; }
     }
 }

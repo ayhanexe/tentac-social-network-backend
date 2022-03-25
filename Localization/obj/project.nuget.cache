@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "wwLfzDNLoV2a9E/wJfrPFuNwnzBNbXHSTJmRzpzwr6kx96zfYw2mFXGymxYhND/2zAEt3d4k2C/4CDzn+kjFLQ==",
+  "dgSpecHash": "HZ8mWhlXPq3HNNz9MnMRLY++lX3plMOoZ8QKKpOIbx464YnGxRjpTAmamp0/XHSFAe0sgJDyvLP0OSbZzkwtfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Localization\\Localization.csproj",
+  "projectFilePath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Localization\\Localization.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Aykhan.a\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
-    "C:\\Users\\Aykhan.a\\.nuget\\packages\\microsoft.extensions.localization\\5.0.15\\microsoft.extensions.localization.5.0.15.nupkg.sha512",
-    "C:\\Users\\Aykhan.a\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\5.0.15\\microsoft.extensions.localization.abstractions.5.0.15.nupkg.sha512",
-    "C:\\Users\\Aykhan.a\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
-    "C:\\Users\\Aykhan.a\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
-    "C:\\Users\\Aykhan.a\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
+    "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.localization\\5.0.15\\microsoft.extensions.localization.5.0.15.nupkg.sha512",
+    "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\5.0.15\\microsoft.extensions.localization.abstractions.5.0.15.nupkg.sha512",
+    "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\0x21106\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }
