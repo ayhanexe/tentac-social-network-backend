@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,15 +40,27 @@ namespace Repository.DAL
             {
                 User user = new User
                 {
+                    Name = "",
+                    Surname = "",
                     UserName = "Admin",
                     Email = "admin@tentac.com"
                 };
 
                 await _userManager.CreateAsync(user, "b911-h4rt-owd1");
                 await _userManager.AddToRoleAsync(user, RoleConstants.Admin);
+
+                await _dbContext.UserWalls.AddAsync(new UserWall
+                {
+                    UserId = user.Id,
+                    User = user,
+                    Photo = ConfigConstants.DefaultWallPhotoName,
+                    isDeleted = false,
+                    CreateDate = DateTime.Now,
+                });
+
             }
 
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

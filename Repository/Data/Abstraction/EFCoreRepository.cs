@@ -1,7 +1,10 @@
 ﻿using DomainModels.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Utils;
 
 namespace Repository.Data.Abstraction
 {
@@ -56,13 +59,16 @@ namespace Repository.Data.Abstraction
             return entities;
         }
 
-        public async Task<TEntity> Update(TEntity entity)
+        public async Task<TEntity> Update(TEntityPrimaryKey id, TEntity entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-
+            var _entity = await _context.Set<TEntity>().FindAsync(id);
+            var updated = RepoUtils.CheckUpdateObject(_entity, entity);
+            _context.Entry(_entity).CurrentValues.SetValues(updated);
             await _context.SaveChangesAsync();
+
 
             return entity;
         }
+
     }
 }

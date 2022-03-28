@@ -5,6 +5,7 @@ using Authentication.Utils;
 using Constants;
 using DomainModels.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Repository.DAL;
@@ -36,7 +37,7 @@ namespace Authentication.Services
         public async Task<LoginResponseDto> Login(LoginModelDto model)
         {
             var authModel = new LoginResponseDto();
-            var user = await _userManager.FindByEmailAsync(model.Email);
+            User user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user == null)
             {
@@ -58,8 +59,29 @@ namespace Authentication.Services
                 authModel.Email = user.Email;
                 authModel.Username = user.UserName;
                 authModel.id = user.Id;
+                authModel.Name = user.Name;
+                authModel.Surname = user.Surname;
                 var roleList = await _userManager.GetRolesAsync(user).ConfigureAwait(false);
                 authModel.Roles = roleList.ToList<string>();
+
+                var tokens = await _context.UserTokens.Where(ut => ut.UserId == user.Id).ToListAsync();
+                foreach(var item in tokens)
+                {
+                    _context.Remove(item);
+                }
+
+                var it = new IdentityUserToken<string>
+                {
+                    Name = user.UserName,
+                    LoginProvider = "server",
+                    UserId = user.Id,
+                    Value = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
+                };
+
+                _context.UserTokens.Add(it);
+
+                await _context.SaveChangesAsync();
+
                 return authModel;
             }
 
@@ -130,13 +152,26 @@ namespace Authentication.Services
 
             var userModel = new User()
             {
-                FullName = "",
+                Name = model.Name,
+                Surname = model.Surname,
                 Email = model.Email,
                 UserName = model.Username
             };
 
             IdentityResult result = await _userManager.CreateAsync(userModel, model.Password);
             await _userManager.AddToRoleAsync(userModel, RoleConstants.User);
+            await _context.SaveChangesAsync();
+
+            var wall = new UserWall
+            {
+                UserId = userModel.Id,
+                User = userModel,
+                Photo = ConfigConstants.DefaultWallPhotoName,
+                isDeleted = false,
+                CreateDate = DateTime.Now,
+            };
+
+            await _context.UserWalls.AddAsync(wall);
             await _context.SaveChangesAsync();
 
             if (!result.Succeeded)
@@ -174,7 +209,6 @@ namespace Authentication.Services
             }
             .Union(userClaims)
             .Union(roleClaims);
-            Console.WriteLine(_jwt);
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256);
             var jwtSecurityToken = new JwtSecurityToken(

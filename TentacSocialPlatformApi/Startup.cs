@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -19,6 +20,7 @@ using Repository.Mapper;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Reflection;
 using System.Text;
 
@@ -42,7 +44,7 @@ namespace TentacSocialPlatformApi
                 options.AddDefaultPolicy(
                     builder =>
                     {
-                        builder.WithOrigins("https://localhost:44351", "http://localhost:4200", "http://localhost", "http://127.0.0.1")
+                        builder.WithOrigins("https://localhost:44351", "http://localhost:4200", "http://localhost", "http://127.0.0.1", "http://localhost:3000/")
                                             .AllowAnyHeader()
                                             .AllowAnyMethod();
                     });
@@ -114,10 +116,15 @@ namespace TentacSocialPlatformApi
                 x.SupportedUICultures = new List<CultureInfo> { new("en"), new("tr"), new("az") };
             });
 
+            services.AddDirectoryBrowser();
+
             services.AddControllers()
                 .AddDataAnnotationsLocalization(o =>
                 {
                     o.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(DataAnnotations));
+                }).AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
         }
 
@@ -147,6 +154,15 @@ namespace TentacSocialPlatformApi
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseStaticFiles();
+            app.UseFileServer(new FileServerOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+                RequestPath = "/static",
+                EnableDefaultFiles = true
+            });
 
             app.UseEndpoints(endpoints =>
             {

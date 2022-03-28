@@ -65,7 +65,7 @@ namespace TentacSocialPlatformApi.Controllers.Abstraction
         }
 
         [HttpPut("{id}")]
-        public virtual async Task<IActionResult> Put(TEntityPrimaryKey id, TEntity entity)
+        public virtual async Task<IActionResult> Put(TEntityPrimaryKey id, TEntity entity, string token = "")
         {
             TEntity _entity = await _repository.Get(id);
 
@@ -76,7 +76,7 @@ namespace TentacSocialPlatformApi.Controllers.Abstraction
 
             try
             {
-                await _repository.Update(entity);
+                await _repository.Update(id, entity);
                 return Ok();
             }
             catch (Exception exception)

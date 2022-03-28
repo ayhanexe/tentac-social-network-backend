@@ -11,7 +11,7 @@ namespace Repository.Data
         Task<List<T>> GetAll();
         Task<T> Get(TPrimaryKey id);
         Task<T> Add(T entity);
-        Task<T> Update(T entity);
+        Task<T> Update(TPrimaryKey id, T entity);
         Task<T> Delete(TPrimaryKey id);
     }
 }
