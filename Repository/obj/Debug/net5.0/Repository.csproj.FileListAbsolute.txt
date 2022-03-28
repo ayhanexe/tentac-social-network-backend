@@ -48,5 +48,8 @@ C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Repository\obj\Debug\net5.0\ref\Repository.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Repository\obj\Debug\net5.0\Repository.pdb
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Repository\obj\Debug\net5.0\Repository.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Repository\bin\Debug\net5.0\Utils.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Repository\bin\Debug\net5.0\Utils.pdb
+=======
+>>>>>>> 60667940fbbce0c24193e76f0a1733ac50d9ad2b

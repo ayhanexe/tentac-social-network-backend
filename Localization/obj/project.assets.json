@@ -198,23 +198,34 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+=======
+    "C:\\Users\\0x21106\\.nuget\\packages\\": {}
+>>>>>>> 60667940fbbce0c24193e76f0a1733ac50d9ad2b
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Localization\\Localization.csproj",
+      "projectUniqueName": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Localization\\Localization.csproj",
       "projectName": "Localization",
+<<<<<<< HEAD
       "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Localization\\Localization.csproj",
       "packagesPath": "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Localization\\obj\\",
+=======
+      "projectPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Localization\\Localization.csproj",
+      "packagesPath": "C:\\Users\\0x21106\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\0x21106\\Desktop\\www\\tentac-social-network\\tentac-social-network-backend\\Localization\\obj\\",
+>>>>>>> 60667940fbbce0c24193e76f0a1733ac50d9ad2b
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Aykhan.abdullayev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\0x21106\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 60667940fbbce0c24193e76f0a1733ac50d9ad2b
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -260,7 +271,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

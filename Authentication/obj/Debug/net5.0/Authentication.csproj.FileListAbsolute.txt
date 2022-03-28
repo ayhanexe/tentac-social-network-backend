@@ -46,5 +46,8 @@ C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\obj\Debug\net5.0\Authentication.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\obj\Debug\net5.0\ref\Authentication.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\Authentication\obj\Debug\net5.0\Authentication.pdb
+<<<<<<< HEAD
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Authentication\bin\Debug\net5.0\Utils.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Authentication\bin\Debug\net5.0\Utils.pdb
+=======
+>>>>>>> 60667940fbbce0c24193e76f0a1733ac50d9ad2b

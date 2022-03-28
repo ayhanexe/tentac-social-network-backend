@@ -36,5 +36,8 @@ C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\ref\DomainModels.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\DomainModels\obj\Debug\net5.0\DomainModels.pdb
+<<<<<<< HEAD
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\DomainModels\bin\Debug\net5.0\Constants.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\DomainModels\bin\Debug\net5.0\Constants.pdb
+=======
+>>>>>>> 60667940fbbce0c24193e76f0a1733ac50d9ad2b

@@ -184,9 +184,12 @@ C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\TentacSocialPlatformApi\obj\Debug\net5.0\ref\TentacSocialPlatformApi.dll
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\TentacSocialPlatformApi\obj\Debug\net5.0\TentacSocialPlatformApi.pdb
 C:\Users\0x21106\Desktop\www\tentac-social-network\tentac-social-network-backend\TentacSocialPlatformApi\obj\Debug\net5.0\TentacSocialPlatformApi.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\bin\Debug\net5.0\Utils.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\bin\Debug\net5.0\Utils.pdb
+=======
+>>>>>>> 60667940fbbce0c24193e76f0a1733ac50d9ad2b
