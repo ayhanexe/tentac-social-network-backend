@@ -14,6 +14,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TentacSocialPlatformApi.Controllers.Abstraction;
+using Authentication.Utils;
+using System.IO;
+using Constants;
 
 namespace TentacSocialPlatformApi.Controllers
 {
@@ -36,7 +39,7 @@ namespace TentacSocialPlatformApi.Controllers
         [HttpGet]
         public override async Task<ActionResult<IEnumerable<User>>> Get()
         {
-            List<User> entities = await _context.Users.Include(u => u.UserWalls).Include(u => u.ProfilePhotos).ToListAsync();
+            List<User> entities = await _userRepository.GetAll();
 
             return entities;
         }
@@ -44,7 +47,7 @@ namespace TentacSocialPlatformApi.Controllers
         [HttpGet("{id}")]
         public override async Task<ActionResult<User>> Get(string id)
         {
-            User entity = await _context.Users.Include(u => u.UserWalls).Include(u => u.ProfilePhotos).Where(u => u.Id == id).FirstOrDefaultAsync();
+            User entity = await _userRepository.Get(id);
 
             if (entity == null) return null;
 
@@ -84,8 +87,8 @@ namespace TentacSocialPlatformApi.Controllers
         {
             User _entity = await _userRepository.Get(id);
             var userToken = await _context.UserTokens.Where(ut => ut.UserId == _entity.Id && ut.Value == token).FirstOrDefaultAsync();
-            
-            if(userToken != null)
+
+            if (userToken != null)
             {
 
                 if (_entity == null)
@@ -102,7 +105,9 @@ namespace TentacSocialPlatformApi.Controllers
                 {
                     return BadRequest(exception.Message);
                 }
-            } else {
+            }
+            else
+            {
                 return BadRequest("Please send valid token with header!");
             }
         }
@@ -117,6 +122,46 @@ namespace TentacSocialPlatformApi.Controllers
                 return NotFound();
             }
             return Ok(entity);
+        }
+
+        [HttpPost("addProfile/{id}")]
+        [Authorize(Roles = "superuser, admin, moderator")]
+        public async Task<IActionResult> AddProfile([FromForm] IFormFile File, string id)
+        {
+            try
+            {
+                var user = await _userRepository.Get(id);
+
+                if (user != null)
+                {
+                    if (user.ProfilePhotos.Count > 0)
+                    {
+                        foreach(var photo in user.ProfilePhotos)
+                        {
+                            photo.isDeleted = true;
+                            photo.DeleteDate = DateTime.Now;
+                            Utils.DeleteFile(Path.Combine(ConfigConstants.ProfileImagesRootPath, photo.Photo));
+                        }
+                    }
+                    
+                    var newFileName = await Utils.CopyFile(File, ConfigConstants.ProfileImagesRootPath);
+                    var userPhoto = new UserPhoto
+                    {
+                        User = user,
+                        Photo = newFileName
+                    };
+                    await _context.UserPhotos.AddAsync(userPhoto);
+                }
+                var testDeleteFilename = Path.Combine(ConfigConstants.ProfileImagesRootPath, "5d2bb636-7b22-4f18-a6b6-0f1b00b4c1b5.png");
+                var response = Utils.DeleteFile(testDeleteFilename);
+                await _context.SaveChangesAsync();
+                return Ok();
+
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
     }
 }

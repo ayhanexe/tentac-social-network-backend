@@ -1,10 +1,10 @@
 ﻿using DomainModels.Entities;
 using Microsoft.EntityFrameworkCore;
+using Repository.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Utils;
 
 namespace Repository.Data.Abstraction
 {
@@ -22,14 +22,14 @@ namespace Repository.Data.Abstraction
             _dbSet = context.Set<TEntity>();
         }
 
-        public async Task<TEntity> Add(TEntity entity)
+        public virtual async Task<TEntity> Add(TEntity entity)
         {
             _dbSet.Add(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task<TEntity> Delete(TEntityPrimaryKey id)
+        public virtual async Task<TEntity> Delete(TEntityPrimaryKey id)
         {
             TEntity entity = await _dbSet.FindAsync(id);
 
@@ -42,7 +42,7 @@ namespace Repository.Data.Abstraction
 
         }
 
-        public async Task<TEntity> Get(TEntityPrimaryKey id)
+        public virtual async Task<TEntity> Get(TEntityPrimaryKey id)
         {
             TEntity entity = await _dbSet.FindAsync(id);
 
@@ -52,14 +52,14 @@ namespace Repository.Data.Abstraction
 
         }
 
-        public async Task<List<TEntity>> GetAll()
+        public virtual async Task<List<TEntity>> GetAll()
         {
             List<TEntity> entities = await _dbSet.ToListAsync();
 
             return entities;
         }
 
-        public async Task<TEntity> Update(TEntityPrimaryKey id, TEntity entity)
+        public virtual async Task<TEntity> Update(TEntityPrimaryKey id, TEntity entity)
         {
             var _entity = await _context.Set<TEntity>().FindAsync(id);
             var updated = RepoUtils.CheckUpdateObject(_entity, entity);

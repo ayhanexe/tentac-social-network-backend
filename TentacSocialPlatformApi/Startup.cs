@@ -1,5 +1,6 @@
 using Authentication.Models;
 using Authentication.Services;
+using Constants;
 using DomainModels.Entities;
 using Localization.Localization.DataAnnotations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -38,6 +39,9 @@ namespace TentacSocialPlatformApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ConfigConstants.DefaultRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\");
+            ConfigConstants.ProfileImagesRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\media\\profiles");
+            ConfigConstants.WallImagesRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\media\\walls");
 
             services.AddCors(options =>
             {

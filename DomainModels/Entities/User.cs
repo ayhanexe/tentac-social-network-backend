@@ -1,15 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
-<<<<<<< HEAD
-using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-=======
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
->>>>>>> 60667940fbbce0c24193e76f0a1733ac50d9ad2b
 
 namespace DomainModels.Entities
 {

@@ -1,6 +1,9 @@
 ﻿using Authentication.Config;
+using Constants;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -126,6 +129,47 @@ namespace Authentication.Utils
                     HasError = true,
                     Message = "Invalid password!"
                 }; ;
+            }
+        }
+
+        public async static Task<string> CopyFile(IFormFile file, string copyPath)
+        {
+            try
+            {
+                if (!Directory.Exists(copyPath))
+                    Directory.CreateDirectory(copyPath);
+                string uniqueFileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+                string fileNameWithPath = Path.Combine(copyPath, uniqueFileName);
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    
+                    await file.CopyToAsync(stream);
+                }
+                return uniqueFileName;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public static bool DeleteFile(string filePath)
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                    return true;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch(Exception ex)
+            {
+                return false;
             }
         }
     }

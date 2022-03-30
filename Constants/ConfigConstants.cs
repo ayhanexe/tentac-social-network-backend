@@ -9,5 +9,8 @@ namespace Constants
     public static class ConfigConstants
     {
         public static string DefaultWallPhotoName { get; set; } = "wall-default.jpg";
+        public static string DefaultRootPath { get; set; }
+        public static string ProfileImagesRootPath { get; set; }
+        public static string WallImagesRootPath { get; set; }
     }
 }
