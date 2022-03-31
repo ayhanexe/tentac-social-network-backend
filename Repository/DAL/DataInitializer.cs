@@ -49,14 +49,7 @@ namespace Repository.DAL
                 await _userManager.CreateAsync(user, "b911-h4rt-owd1");
                 await _userManager.AddToRoleAsync(user, RoleConstants.Admin);
 
-                await _dbContext.UserWalls.AddAsync(new UserWall
-                {
-                    UserId = user.Id,
-                    User = user,
-                    Photo = ConfigConstants.DefaultWallPhotoName,
-                    isDeleted = false,
-                    CreateDate = DateTime.Now,
-                });
+                user.UserWall = ConfigConstants.DefaultWallPhotoName;
 
             }
 

@@ -21,7 +21,7 @@ namespace DomainModels.Entities
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
         public string Tel { get; set; }
-        public List<UserPhoto> ProfilePhotos { get; set; }
-        public List<UserWall> UserWalls { get; set; }
+        public string ProfilePhoto { get; set; }
+        public string UserWall { get; set; }
     }
 }

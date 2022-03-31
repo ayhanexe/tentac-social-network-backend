@@ -131,31 +131,54 @@ namespace TentacSocialPlatformApi.Controllers
             try
             {
                 var user = await _userRepository.Get(id);
-
                 if (user != null)
                 {
-                    if (user.ProfilePhotos.Count > 0)
-                    {
-                        foreach(var photo in user.ProfilePhotos)
-                        {
-                            photo.isDeleted = true;
-                            photo.DeleteDate = DateTime.Now;
-                            Utils.DeleteFile(Path.Combine(ConfigConstants.ProfileImagesRootPath, photo.Photo));
-                        }
-                    }
-                    
                     var newFileName = await Utils.CopyFile(File, ConfigConstants.ProfileImagesRootPath);
-                    var userPhoto = new UserPhoto
+                    var oldPhotoName = user.ProfilePhoto;
+                    if (oldPhotoName != null)
                     {
-                        User = user,
-                        Photo = newFileName
-                    };
-                    await _context.UserPhotos.AddAsync(userPhoto);
+                        var oldProfilePhotoPath = Path.Combine(ConfigConstants.ProfileImagesRootPath, oldPhotoName);
+                        Utils.DeleteFile(oldProfilePhotoPath);
+                    }
+                    user.ProfilePhoto = newFileName;
+
+                    await _context.SaveChangesAsync();
+                    return Ok(newFileName);
                 }
-                var testDeleteFilename = Path.Combine(ConfigConstants.ProfileImagesRootPath, "5d2bb636-7b22-4f18-a6b6-0f1b00b4c1b5.png");
-                var response = Utils.DeleteFile(testDeleteFilename);
-                await _context.SaveChangesAsync();
-                return Ok();
+
+                return BadRequest("User not found!");
+
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+
+        [HttpPost("addWall/{id}")]
+        [Authorize(Roles = "superuser, admin, moderator")]
+        public async Task<IActionResult> AddWall([FromForm] IFormFile File, string id)
+        {
+            try
+            {
+                var user = await _userRepository.Get(id);
+                if (user != null)
+                {
+                    var newFileName = await Utils.CopyFile(File, ConfigConstants.WallImagesRootPath);
+                    var oldPhotoName = user.UserWall;
+                    if (oldPhotoName != null)
+                    {
+                        var oldProfilePhotoPath = Path.Combine(ConfigConstants.WallImagesRootPath, oldPhotoName);
+                        Utils.DeleteFile(oldProfilePhotoPath);
+                    }
+                    user.UserWall = newFileName;
+
+                    await _context.SaveChangesAsync();
+                    return Ok(newFileName);
+                }
+
+                return BadRequest("User not found!");
 
             }
             catch (Exception exception)

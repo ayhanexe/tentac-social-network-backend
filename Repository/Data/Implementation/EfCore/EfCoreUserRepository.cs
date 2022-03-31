@@ -18,15 +18,5 @@ namespace Repository.Data.Implementation.EfCore
         public EfCoreUserRepository(AppDbContext context) : base(context) {
             _context = context;
         }
-
-        public override async Task<User> Get(string id)
-        {
-            return await _context.Users.Where(u => u.Id == id).Include(u => u.ProfilePhotos.Where(pp => !pp.isDeleted)).Include(u => u.UserWalls.Where(pp => !pp.isDeleted)).FirstOrDefaultAsync();
-        }
-
-        public override async Task<List<User>> GetAll()
-        {
-            return await _context.Users.Include(u => u.ProfilePhotos).Include(u => u.UserWalls).ToListAsync();
-        }
     }
 }
