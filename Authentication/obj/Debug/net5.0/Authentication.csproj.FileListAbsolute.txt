@@ -22,3 +22,4 @@ C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Authentication\
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Authentication\obj\Debug\net5.0\refint\Authentication.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Authentication\obj\Debug\net5.0\Authentication.pdb
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Authentication\obj\Debug\net5.0\ref\Authentication.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Authentication\bin\Debug\net5.0\ru\Localization.resources.dll

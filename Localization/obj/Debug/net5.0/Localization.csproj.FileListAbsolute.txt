@@ -20,3 +20,6 @@ C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Localization\ob
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Localization\obj\Debug\net5.0\refint\Localization.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Localization\obj\Debug\net5.0\Localization.pdb
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Localization\obj\Debug\net5.0\ref\Localization.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Localization\bin\Debug\net5.0\ru\Localization.resources.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Localization\obj\Debug\net5.0\Localization.Localization.DataAnnotations.DataAnnotations.ru.resources
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Localization\obj\Debug\net5.0\ru\Localization.resources.dll

@@ -18,3 +18,4 @@ C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\DomainModels\ob
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\DomainModels\obj\Debug\net5.0\refint\DomainModels.dll
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\DomainModels\obj\Debug\net5.0\DomainModels.pdb
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\DomainModels\obj\Debug\net5.0\ref\DomainModels.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\DomainModels\bin\Debug\net5.0\ru\Localization.resources.dll

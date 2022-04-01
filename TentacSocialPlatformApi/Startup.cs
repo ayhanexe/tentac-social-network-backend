@@ -39,9 +39,6 @@ namespace TentacSocialPlatformApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ConfigConstants.DefaultRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\");
-            ConfigConstants.ProfileImagesRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\media\\profiles");
-            ConfigConstants.WallImagesRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\media\\walls");
 
             services.AddCors(options =>
             {
@@ -62,7 +59,7 @@ namespace TentacSocialPlatformApi
             .AddJwtBearer(o =>
             {
                 o.RequireHttpsMetadata = false;
-                o.SaveToken = false;
+                o.SaveToken = true;
                 o.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
@@ -104,6 +101,8 @@ namespace TentacSocialPlatformApi
 
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<EfCoreUserRepository>();
+            services.AddScoped<EfCorePostRepository>();
+            services.AddScoped<EfCoreUserPostsRepository>();
 
             services.AddSwaggerGen(c =>
             {

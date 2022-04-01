@@ -93,3 +93,4 @@ C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPla
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\obj\Debug\net5.0\TentacSocialPlatformApi.pdb
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\obj\Debug\net5.0\TentacSocialPlatformApi.genruntimeconfig.cache
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\obj\Debug\net5.0\ref\TentacSocialPlatformApi.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\TentacSocialPlatformApi\bin\Debug\net5.0\ru\Localization.resources.dll

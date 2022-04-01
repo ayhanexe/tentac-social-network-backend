@@ -162,7 +162,7 @@ namespace Authentication.Services
             await _userManager.AddToRoleAsync(userModel, RoleConstants.User);
             await _context.SaveChangesAsync();
 
-            user.UserWall = ConfigConstants.DefaultWallPhotoName;
+            userModel.UserWall = ConfigConstants.DefaultWallPhotoName;
             await _context.SaveChangesAsync();
 
             if (!result.Succeeded)

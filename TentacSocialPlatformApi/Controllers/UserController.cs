@@ -82,7 +82,7 @@ namespace TentacSocialPlatformApi.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "superuser, admin, moderator ")]
+        [Authorize(Roles = "superuser, admin, moderator, user")]
         public override async Task<IActionResult> Put(string id, [FromBody] User entity, [FromHeader] string token)
         {
             User _entity = await _userRepository.Get(id);
@@ -125,7 +125,7 @@ namespace TentacSocialPlatformApi.Controllers
         }
 
         [HttpPost("addProfile/{id}")]
-        [Authorize(Roles = "superuser, admin, moderator")]
+        [Authorize(Roles = "superuser, admin, moderator, user")]
         public async Task<IActionResult> AddProfile([FromForm] IFormFile File, string id)
         {
             try
@@ -157,7 +157,7 @@ namespace TentacSocialPlatformApi.Controllers
 
 
         [HttpPost("addWall/{id}")]
-        [Authorize(Roles = "superuser, admin, moderator")]
+        [Authorize(Roles = "superuser, admin, moderator, user")]
         public async Task<IActionResult> AddWall([FromForm] IFormFile File, string id)
         {
             try

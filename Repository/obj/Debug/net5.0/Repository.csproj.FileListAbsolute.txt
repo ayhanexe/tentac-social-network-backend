@@ -23,3 +23,4 @@ C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Repository\obj\
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Repository\obj\Debug\net5.0\Repository.pdb
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Repository\obj\Debug\net5.0\Repository.genruntimeconfig.cache
 C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Repository\obj\Debug\net5.0\ref\Repository.dll
+C:\Users\Aykhan.abdullayev\Desktop\tentac-social-network\backend\Repository\bin\Debug\net5.0\ru\Localization.resources.dll
