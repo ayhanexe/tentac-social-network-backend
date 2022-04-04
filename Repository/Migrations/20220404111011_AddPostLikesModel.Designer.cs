@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository.DAL;
 
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220404111011_AddPostLikesModel")]
+    partial class AddPostLikesModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,16 +66,11 @@ namespace Repository.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("UserPostsId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PostId");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("UserPostsId");
 
                     b.ToTable("PostLikes");
                 });
@@ -338,10 +335,6 @@ namespace Repository.Migrations
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.HasOne("DomainModels.Entities.UserPosts", null)
-                        .WithMany("PostLikes")
-                        .HasForeignKey("UserPostsId");
-
                     b.Navigation("Post");
 
                     b.Navigation("User");
@@ -416,11 +409,6 @@ namespace Repository.Migrations
             modelBuilder.Entity("DomainModels.Entities.User", b =>
                 {
                     b.Navigation("UserPosts");
-                });
-
-            modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
-                {
-                    b.Navigation("PostLikes");
                 });
 #pragma warning restore 612, 618
         }

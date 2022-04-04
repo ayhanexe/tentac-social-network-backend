@@ -16,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Repository.DAL;
+using Repository.Data;
 using Repository.Data.Implementation.EfCore;
 using Repository.Mapper;
 using System;
@@ -101,8 +102,8 @@ namespace TentacSocialPlatformApi
 
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<EfCoreUserRepository>();
-            services.AddScoped<EfCorePostRepository>();
             services.AddScoped<EfCoreUserPostsRepository>();
+            services.AddScoped<EfCorePostRepository>();
 
             services.AddSwaggerGen(c =>
             {

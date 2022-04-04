@@ -1,4 +1,5 @@
 ﻿using DomainModels.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Repository.Utils;
 using System;
@@ -31,14 +32,21 @@ namespace Repository.Data.Abstraction
 
         public virtual async Task<TEntity> Delete(TEntityPrimaryKey id)
         {
-            TEntity entity = await _dbSet.FindAsync(id);
+            try
+            {
+                TEntity entity = await _dbSet.FindAsync(id);
 
-            if (entity == null) return null;
+                if (entity == null) return null;
 
-            _dbSet.Remove(entity);
-            await _context.SaveChangesAsync();
+                _dbSet.Remove(entity);
+                await _context.SaveChangesAsync();
 
-            return entity;
+                return entity;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
 
         }
 

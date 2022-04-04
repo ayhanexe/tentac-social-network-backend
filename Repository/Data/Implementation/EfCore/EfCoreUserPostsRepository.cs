@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Repository.Data.Implementation.EfCore
 {
-    public class EfCoreUserPostsRepository : EFCoreRepository<UserPosts, string, PostDto, AppDbContext>
+    public class EfCoreUserPostsRepository : EFCoreRepository<UserPosts, int, PostDto, AppDbContext>
     {
         public EfCoreUserPostsRepository(AppDbContext context) : base(context) { }
 

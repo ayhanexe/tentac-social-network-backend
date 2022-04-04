@@ -8,7 +8,8 @@ namespace Repository.Mapper
     {
         public MapperProfile()
         {
-            CreateMap<User, UserDto>();
+            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<Post, PostDto>().ReverseMap();
         }
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DomainModels.Entities
 {
-    public class UserPosts : BaseEntity<int>
+    public class PostLike
     {
-        public User User { get; set; }
+        public int Id { get; set; }
         public Post Post { get; set; }
-        public List<PostLike> PostLikes { get; set; }
+        public User User { get; set; }
     }
 }

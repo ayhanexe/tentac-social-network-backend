@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository.DAL;
 
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220404062549_addReationToPostModels")]
+    partial class addReationToPostModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,33 +51,6 @@ namespace Repository.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Posts");
-                });
-
-            modelBuilder.Entity("DomainModels.Entities.PostLike", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("PostId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int?>("UserPostsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostId");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("UserPostsId");
-
-                    b.ToTable("PostLikes");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.User", b =>
@@ -328,25 +303,6 @@ namespace Repository.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DomainModels.Entities.PostLike", b =>
-                {
-                    b.HasOne("DomainModels.Entities.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId");
-
-                    b.HasOne("DomainModels.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.HasOne("DomainModels.Entities.UserPosts", null)
-                        .WithMany("PostLikes")
-                        .HasForeignKey("UserPostsId");
-
-                    b.Navigation("Post");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
                 {
                     b.HasOne("DomainModels.Entities.Post", "Post")
@@ -416,11 +372,6 @@ namespace Repository.Migrations
             modelBuilder.Entity("DomainModels.Entities.User", b =>
                 {
                     b.Navigation("UserPosts");
-                });
-
-            modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
-                {
-                    b.Navigation("PostLikes");
                 });
 #pragma warning restore 612, 618
         }
