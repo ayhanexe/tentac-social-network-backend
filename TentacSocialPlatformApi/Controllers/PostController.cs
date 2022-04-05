@@ -33,13 +33,15 @@ namespace TentacSocialPlatformApi.Controllers
         [HttpGet]
         public override async Task<ActionResult<IEnumerable<Post>>> Get()
         {
-            return await _context.Posts.Where(p => !p.isDeleted).Include(p => p.User).Include(p => p.PostLikes).ToListAsync();
+            var posts = await _context.Posts.Where(p => !p.isDeleted).Include(p => p.User).Include(p => p.PostLikes).ToListAsync();
+            return posts;
         }
 
         [HttpGet("{id}")]
         public override async Task<ActionResult<Post>> Get(int id)
         {
-            return await _context.Posts.Include(p => p.User).Include(p => p.PostLikes).Where(p => !p.isDeleted && p.Id == id).FirstOrDefaultAsync();
+            var post = await _context.Posts.Where(p => !p.isDeleted && p.Id == id).Include(p => p.User).Include(p => p.PostLikes).FirstOrDefaultAsync();
+            return post;
         }
 
 

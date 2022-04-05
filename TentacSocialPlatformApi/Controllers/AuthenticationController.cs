@@ -4,15 +4,8 @@ using Authentication.Services;
 using AutoMapper;
 using DomainModels.Dtos;
 using DomainModels.Entities;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Localization;
-using Microsoft.VisualBasic;
-using Repository.Data.Implementation.EfCore;
-using System.Net;
 using System.Threading.Tasks;
-using TentacSocialPlatformApi.Controllers.Abstraction;
 
 namespace TentacSocialPlatformApi.Controllers
 {

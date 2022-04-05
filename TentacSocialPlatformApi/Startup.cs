@@ -18,6 +18,7 @@ using Microsoft.OpenApi.Models;
 using Repository.DAL;
 using Repository.Data;
 using Repository.Data.Implementation.EfCore;
+using Repository.Hubs;
 using Repository.Mapper;
 using System;
 using System.Collections.Generic;
@@ -130,6 +131,7 @@ namespace TentacSocialPlatformApi
                 {
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 });
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -170,6 +172,7 @@ namespace TentacSocialPlatformApi
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<PostHub>("/hubs/post");
                 endpoints.MapControllers();
             });
         }
