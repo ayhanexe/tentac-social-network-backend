@@ -41,16 +41,13 @@ namespace TentacSocialPlatformApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
-                    builder =>
-                    {
-                        builder.WithOrigins("https://localhost:44351", "http://localhost:4200", "http://localhost", "http://127.0.0.1", "http://localhost:3000/")
-                                            .AllowAnyHeader()
-                                            .AllowAnyMethod();
-                    });
+                options.AddDefaultPolicy(builder =>
+                   builder.SetIsOriginAllowed(_ => true)
+                   .AllowAnyMethod()
+                   .AllowAnyHeader()
+                   .AllowCredentials());
             });
 
             services.AddAuthentication(options =>
@@ -137,6 +134,8 @@ namespace TentacSocialPlatformApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -146,13 +145,6 @@ namespace TentacSocialPlatformApi
 
             app.UseRequestLocalization();
 
-            app.UseCors(builder =>
-            {
-                builder
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader();
-            });
 
             app.UseHttpsRedirection();
 
@@ -172,7 +164,7 @@ namespace TentacSocialPlatformApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<PostHub>("/hubs/post");
+                endpoints.MapHub<PostHub>("/Post");
                 endpoints.MapControllers();
             });
         }

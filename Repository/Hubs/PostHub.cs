@@ -7,11 +7,23 @@ using System.Threading.Tasks;
 
 namespace Repository.Hubs
 {
-    public class PostHub : Hub<IPostHub>
+    public class ChatMessage
     {
-        public async Task SendMessage(string message)
+        public string User { get; set; }
+
+        public string Message { get; set; }
+    }
+
+    public interface IChatClient
+    {
+        Task ReceiveMessage(ChatMessage message);
+    }
+
+    public class PostHub : Hub
+    {
+        public async Task UserPosted(string userId)
         {
-            await Clients.All.SendMessage(message);
+                await Clients.All.SendAsync("UserPosted", userId);
         }
     }
 }
