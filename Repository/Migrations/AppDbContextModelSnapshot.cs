@@ -61,6 +61,9 @@ namespace Repository.Migrations
                     b.Property<int?>("PostId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("PostRepliesId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -71,11 +74,55 @@ namespace Repository.Migrations
 
                     b.HasIndex("PostId");
 
+                    b.HasIndex("PostRepliesId");
+
                     b.HasIndex("UserId");
 
                     b.HasIndex("UserPostsId");
 
                     b.ToTable("PostLikes");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.PostReplies", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ParentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PostReplies");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.User", b =>
@@ -331,8 +378,12 @@ namespace Repository.Migrations
             modelBuilder.Entity("DomainModels.Entities.PostLike", b =>
                 {
                     b.HasOne("DomainModels.Entities.Post", "Post")
-                        .WithMany()
+                        .WithMany("PostLikes")
                         .HasForeignKey("PostId");
+
+                    b.HasOne("DomainModels.Entities.PostReplies", null)
+                        .WithMany("PostLikes")
+                        .HasForeignKey("PostRepliesId");
 
                     b.HasOne("DomainModels.Entities.User", "User")
                         .WithMany()
@@ -341,6 +392,27 @@ namespace Repository.Migrations
                     b.HasOne("DomainModels.Entities.UserPosts", null)
                         .WithMany("PostLikes")
                         .HasForeignKey("UserPostsId");
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.PostReplies", b =>
+                {
+                    b.HasOne("DomainModels.Entities.User", "Parent")
+                        .WithMany()
+                        .HasForeignKey("ParentId");
+
+                    b.HasOne("DomainModels.Entities.Post", "Post")
+                        .WithMany("PostReplies")
+                        .HasForeignKey("PostId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Parent");
 
                     b.Navigation("Post");
 
@@ -411,6 +483,18 @@ namespace Repository.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.Post", b =>
+                {
+                    b.Navigation("PostLikes");
+
+                    b.Navigation("PostReplies");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.PostReplies", b =>
+                {
+                    b.Navigation("PostLikes");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.User", b =>

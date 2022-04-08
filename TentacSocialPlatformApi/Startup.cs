@@ -18,7 +18,6 @@ using Microsoft.OpenApi.Models;
 using Repository.DAL;
 using Repository.Data;
 using Repository.Data.Implementation.EfCore;
-using Repository.Hubs;
 using Repository.Mapper;
 using System;
 using System.Collections.Generic;
@@ -164,7 +163,6 @@ namespace TentacSocialPlatformApi
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<PostHub>("/Post");
                 endpoints.MapControllers();
             });
         }

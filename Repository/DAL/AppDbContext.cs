@@ -11,5 +11,6 @@ namespace Repository.DAL
         public DbSet<Post> Posts { get; set; }
         public DbSet<UserPosts> UserPosts { get; set; }
         public DbSet<PostLike> PostLikes { get; set; }
+        public DbSet<PostReplies> PostReplies { get; set; }
     }
 }
