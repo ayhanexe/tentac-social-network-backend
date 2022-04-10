@@ -12,6 +12,6 @@ namespace DomainModels.Entities
         public User Parent { get; set; }
         public Post Post { get; set; }
         public string Text { get; set; }
-        public List<PostLike> PostLikes { get; set; }
+        public List<ReplyLikes> PostLikes { get; set; }
     }
 }
