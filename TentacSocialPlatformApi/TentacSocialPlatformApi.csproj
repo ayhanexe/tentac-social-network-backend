@@ -27,7 +27,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\media\profiles\" />
-    <Folder Include="wwwroot\media\walls\" />
   </ItemGroup>
 
 </Project>

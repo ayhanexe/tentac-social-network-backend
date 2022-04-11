@@ -11,5 +11,6 @@ namespace DomainModels.Entities
         public User User { get; set; }
         public Post Post { get; set; }
         public List<PostLike> PostLikes { get; set; }
+        public List<PostReplies> PostReplies { get; set; }
     }
 }

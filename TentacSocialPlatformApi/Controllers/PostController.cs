@@ -38,6 +38,9 @@ namespace TentacSocialPlatformApi.Controllers
         {
             var posts = await _context.Posts.Where(p => !p.isDeleted)
                 .Include(p => p.User)
+                .ThenInclude(p => p.UserPosts)
+                .ThenInclude(p => p.PostLikes)
+
                 .Include(p => p.PostLikes)
                 .Include(p => p.PostReplies)
                 .ThenInclude(p => p.User)
@@ -221,10 +224,11 @@ namespace TentacSocialPlatformApi.Controllers
                 var post = await _context.Posts.Where(p => !p.isDeleted && p.Id == id).FirstOrDefaultAsync();
                 var user = await _context.Users.FindAsync(model.userId);
                 var reply = await _context.PostReplies.Include(p => p.Post).Where(p => p.Id == model.replyId && p.Post.Id == id).FirstOrDefaultAsync();
-
+                var test = await _context.ReplyLikes.ToListAsync();
                 var existingReplyLike = await _context.ReplyLikes
                     .Include(pl => pl.User)
-                    .Where(pl => pl.User.Id == model.userId && pl.Id == model.replyId).FirstOrDefaultAsync();
+                    .Include(pl => pl.PostReply)
+                    .Where(pl => pl.User.Id == model.userId && pl.PostReply.Id == model.replyId).FirstOrDefaultAsync();
 
                 if (existingReplyLike == null)
                 {
@@ -252,14 +256,14 @@ namespace TentacSocialPlatformApi.Controllers
         [HttpPost("dislikeReply/{id}")]
         public async Task<IActionResult> Dislike(int id, [FromBody] ReplyLikeModel model)
         {
-            var existingReplyLike = await _context.PostReplies
-                .Include(pl => pl.Post)
+            var existingReplyLike = await _context.ReplyLikes
                 .Include(pl => pl.User)
-                .Where(pl => pl.Post.Id == id && pl.User.Id == model.userId && pl.Id == model.replyId).FirstOrDefaultAsync();
+                .Include(pl => pl.PostReply)
+                .Where(pl => pl.User.Id == model.userId && pl.PostReply.Id == model.replyId).FirstOrDefaultAsync();
 
             if (existingReplyLike != null)
             {
-                _context.PostReplies.Remove(existingReplyLike);
+                _context.ReplyLikes.Remove(existingReplyLike);
                 await _context.SaveChangesAsync();
                 return Ok();
             }

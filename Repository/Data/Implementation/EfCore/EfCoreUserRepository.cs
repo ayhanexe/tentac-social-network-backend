@@ -19,13 +19,43 @@ namespace Repository.Data.Implementation.EfCore
 
         public override async Task<User> Get(string id)
         {
-            var user = await _context.Users.Where(u => u.Id == id).Include(u => u.UserPosts).ThenInclude(u => u.Post).ThenInclude(p => p.User).Include(u => u.UserPosts).ThenInclude(u => u.PostLikes).FirstOrDefaultAsync();
+            var user = await _context.Users.Where(u => u.Id == id)
+                .Include(u => u.UserPosts)
+                .ThenInclude(u => u.Post)
+                .ThenInclude(u => u.PostLikes)
+                .Include(u => u.UserPosts)
+                .ThenInclude(u => u.Post)
+                .ThenInclude(u => u.PostReplies)
+                .ThenInclude(u => u.User)
+                .Include(u => u.UserPosts)
+                .ThenInclude(u => u.Post)
+                .ThenInclude(u => u.PostReplies)
+                .ThenInclude(u => u.PostLikes)
+                .Include(u => u.UserPosts)
+                .ThenInclude(u => u.Post)
+                .ThenInclude(u => u.User)
+                .FirstOrDefaultAsync();
+
             return user;
         }
 
         public override async Task<List<User>> GetAll()
         {
-            return await _context.Users.Include(u => u.UserPosts).ThenInclude(u => u.Post).ThenInclude(p => p.User).Include(u => u.UserPosts).ThenInclude(u => u.PostLikes).ToListAsync();
+            return await _context.Users
+                .Include(u => u.UserPosts)
+                .ThenInclude(u => u.Post)
+                .ThenInclude(u => u.PostLikes)
+                .Include(u => u.UserPosts)
+                .ThenInclude(u => u.Post)
+                .ThenInclude(u => u.PostReplies)
+                .ThenInclude(u => u.User)
+                .Include(u => u.UserPosts)
+                .ThenInclude(u => u.Post)
+                .ThenInclude(u => u.PostReplies)
+                .ThenInclude(u => u.PostLikes)
+                .Include(u => u.UserPosts)
+                .ThenInclude(u => u.Post)
+                .ThenInclude(u => u.User).ToListAsync();
         }
     }
 }
