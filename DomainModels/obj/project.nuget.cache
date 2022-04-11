@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hQPryg2Vd5/7foOrZ+PdyXu0yFp62RcP2mNecHLPUa4VGvrb4/CvJwS8gxZw2kMgbqGD8L8Z8OR0bD5uZDy8hA==",
+  "dgSpecHash": "hS5eVCyFM7SMhbEO38ywUqLUq000kCHabv3qkWJy/uEsdjd9Wp7/Q5GzuiTnP8YGEs5L6ZGcn4MsQrEYIZDloQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\DomainModels\\DomainModels.csproj",
+  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.15\\microsoft.aspnetcore.cryptography.internal.5.0.15.nupkg.sha512",
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.15\\microsoft.aspnetcore.cryptography.keyderivation.5.0.15.nupkg.sha512",

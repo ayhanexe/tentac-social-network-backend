@@ -6281,11 +6281,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Repository\\Repository.csproj",
+      "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj",
       "packagesPath": "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Repository\\obj\\",
+      "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6305,11 +6305,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Constants\\Constants.csproj": {
-              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Constants\\Constants.csproj"
+            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Constants\\Constants.csproj": {
+              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Constants\\Constants.csproj"
             },
-            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\DomainModels\\DomainModels.csproj": {
-              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\DomainModels\\DomainModels.csproj"
+            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj": {
+              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\DomainModels\\DomainModels.csproj"
             }
           }
         }
@@ -6368,7 +6368,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

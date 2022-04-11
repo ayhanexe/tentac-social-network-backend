@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "12S6LuuOrMkKLG6IzFMHWVZARaL2HuNduaboT2xxET0OI2vN0ijoMSs7Dj4Su1OprQ6/SAUx6u7zjC93aqfS2Q==",
+  "dgSpecHash": "bBQH+DyHnIfNgMRodCFW2dGPzP4i1j+JWtapOoCdzoPbD+ridsmk8u3su7o5cw3YOAlDbzZyVO4cUIKPehhFeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Authentication\\Authentication.csproj",
+  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.15\\microsoft.aspnetcore.authentication.jwtbearer.5.0.15.nupkg.sha512",

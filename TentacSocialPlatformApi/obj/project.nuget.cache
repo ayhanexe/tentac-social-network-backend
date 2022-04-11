@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QIaqZHUpw5BSCxUOjMDVYeWo1QxyvNS3kfl20A8ELv78ul82gi0a796kVrVVrkDQES5lc9F/DEewFRSyb+fzTA==",
+  "dgSpecHash": "C/S+iQNMQRI8PVkIY7PMC/mderF0GTpLfO2fPs512kZsB2q4XIa+xql82LjOnjJCPXU4qExW75PCBWM5hAkmmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
+  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

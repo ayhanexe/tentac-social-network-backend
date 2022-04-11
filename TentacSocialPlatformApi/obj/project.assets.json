@@ -6355,11 +6355,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
+      "projectUniqueName": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
       "projectName": "TentacSocialPlatformApi",
-      "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
+      "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\TentacSocialPlatformApi.csproj",
       "packagesPath": "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\TentacSocialPlatformApi\\obj\\",
+      "outputPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\TentacSocialPlatformApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6379,14 +6379,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Authentication\\Authentication.csproj": {
-              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Authentication\\Authentication.csproj"
+            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj": {
+              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Authentication\\Authentication.csproj"
             },
-            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Localization\\Localization.csproj": {
-              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Localization\\Localization.csproj"
+            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Localization\\Localization.csproj": {
+              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Localization\\Localization.csproj"
             },
-            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Repository\\Repository.csproj": {
-              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Repository\\Repository.csproj"
+            "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj": {
+              "projectPath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj"
             }
           }
         }
@@ -6454,7 +6454,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

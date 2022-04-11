@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p9hIRZEXTet+8D0RzzLCKMcqiDJ8AUREATMQCojl8m94oxz+lDKOK+1ybyrmn6seMJb7ymECze36O9TFTj6v9Q==",
+  "dgSpecHash": "SYzBbARqgGIoyogLtNgb0/kTtPsHl0dj9TYfva/4tLEPW67Kv0yFyZu2hsfYCXPVlQ+eao4QGvBuYsrElZQkRA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Repository\\Repository.csproj",
+  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Repository\\Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

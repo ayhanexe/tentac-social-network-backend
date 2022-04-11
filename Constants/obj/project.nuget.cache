@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gFnYpZileoF4FqrCXuEiF5FwCVkRLryRoKvwzQ6btt3q/3JEXKpkfEpv/tLO1IwB3PPNQWusjOMmEZtokhYPIQ==",
+  "dgSpecHash": "/TIFNLUy1LlPa3oljOlgtfcZONtLF/06TLJhIQ/QmEd/c5fxzcB+xzxLOPiIUpAsJ7IuKd7Mvrx/iMoRNZj5uA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\backend\\Constants\\Constants.csproj",
+  "projectFilePath": "C:\\Users\\Aykhan.abdullayev\\Desktop\\tentac-social-network\\tentac-social-network-backend\\Constants\\Constants.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\Aykhan.abdullayev\\.nuget\\packages\\microsoft.extensions.localization\\5.0.15\\microsoft.extensions.localization.5.0.15.nupkg.sha512",
