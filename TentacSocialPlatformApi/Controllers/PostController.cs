@@ -38,8 +38,6 @@ namespace TentacSocialPlatformApi.Controllers
         {
             var posts = await _context.Posts.Where(p => !p.isDeleted)
                 .Include(p => p.User)
-                .ThenInclude(p => p.UserPosts)
-                .ThenInclude(p => p.PostLikes)
 
                 .Include(p => p.PostLikes)
                 .Include(p => p.PostReplies)

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DomainModels.Entities
 {
@@ -23,6 +24,5 @@ namespace DomainModels.Entities
         public string Tel { get; set; }
         public string ProfilePhoto { get; set; }
         public string UserWall { get; set; }
-        public List<UserPosts> UserPosts { get; set; }
     }
 }

@@ -252,6 +252,49 @@ namespace Repository.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("DomainModels.Entities.UserFriendRequests", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FriendRequestedUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FriendRequestedUserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserFirendRequests");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserFriends", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FriendId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FriendId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserFriends");
+                });
+
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
                 {
                     b.Property<int>("Id")
@@ -479,6 +522,36 @@ namespace Repository.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("DomainModels.Entities.UserFriendRequests", b =>
+                {
+                    b.HasOne("DomainModels.Entities.User", "FriendRequestedUser")
+                        .WithMany()
+                        .HasForeignKey("FriendRequestedUserId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("FriendRequestedUser");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserFriends", b =>
+                {
+                    b.HasOne("DomainModels.Entities.User", "Friend")
+                        .WithMany()
+                        .HasForeignKey("FriendId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Friend");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
                 {
                     b.HasOne("DomainModels.Entities.Post", "Post")
@@ -486,7 +559,7 @@ namespace Repository.Migrations
                         .HasForeignKey("PostId");
 
                     b.HasOne("DomainModels.Entities.User", "User")
-                        .WithMany("UserPosts")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Post");
@@ -555,11 +628,6 @@ namespace Repository.Migrations
             modelBuilder.Entity("DomainModels.Entities.PostReplies", b =>
                 {
                     b.Navigation("PostLikes");
-                });
-
-            modelBuilder.Entity("DomainModels.Entities.User", b =>
-                {
-                    b.Navigation("UserPosts");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>

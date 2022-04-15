@@ -10,8 +10,10 @@ namespace Repository.DAL
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<UserPosts> UserPosts { get; set; }
-        public DbSet<PostLike> PostLikes { get; set; }
+        public DbSet<PostLike> PostLikes { get; set; }  
         public DbSet<ReplyLikes> ReplyLikes { get; set; }
         public DbSet<PostReplies> PostReplies { get; set; }
+        public DbSet<UserFriendRequests> UserFirendRequests { get; set; }
+        public DbSet<UserFriends> UserFriends { get; set; }
     }
 }

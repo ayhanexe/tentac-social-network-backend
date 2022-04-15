@@ -167,7 +167,7 @@ namespace TentacSocialPlatformApi.Controllers
                 {
                     var newFileName = await Utils.CopyFile(File, ConfigConstants.WallImagesRootPath);
                     var oldPhotoName = user.UserWall;
-                    if (oldPhotoName != null)
+                    if (oldPhotoName != null && user.ProfilePhoto == ConfigConstants.DefaultWallPhotoName)
                     {
                         var oldProfilePhotoPath = Path.Combine(ConfigConstants.WallImagesRootPath, oldPhotoName);
                         Utils.DeleteFile(oldProfilePhotoPath);

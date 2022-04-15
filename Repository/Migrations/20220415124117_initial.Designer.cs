@@ -10,8 +10,8 @@ using Repository.DAL;
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220404062549_addReationToPostModels")]
-    partial class addReationToPostModels
+    [Migration("20220415124117_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,6 +51,119 @@ namespace Repository.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.PostLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PostReplyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("UserPostsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("PostReplyId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("UserPostsId");
+
+                    b.ToTable("PostLikes");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.PostReplies", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ParentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("UserPostsId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("UserPostsId");
+
+                    b.ToTable("PostReplies");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.ReplyLikes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("LastModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("PostReplyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("isDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostReplyId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ReplyLikes");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.User", b =>
@@ -139,6 +252,49 @@ namespace Repository.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserFriendRequests", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FriendRequestedUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FriendRequestedUserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserFirendRequests");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserFriends", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FriendId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FriendId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserFriends");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
@@ -303,6 +459,101 @@ namespace Repository.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("DomainModels.Entities.PostLike", b =>
+                {
+                    b.HasOne("DomainModels.Entities.Post", "Post")
+                        .WithMany("PostLikes")
+                        .HasForeignKey("PostId");
+
+                    b.HasOne("DomainModels.Entities.PostReplies", "PostReply")
+                        .WithMany()
+                        .HasForeignKey("PostReplyId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("DomainModels.Entities.UserPosts", null)
+                        .WithMany("PostLikes")
+                        .HasForeignKey("UserPostsId");
+
+                    b.Navigation("Post");
+
+                    b.Navigation("PostReply");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.PostReplies", b =>
+                {
+                    b.HasOne("DomainModels.Entities.User", "Parent")
+                        .WithMany()
+                        .HasForeignKey("ParentId");
+
+                    b.HasOne("DomainModels.Entities.Post", "Post")
+                        .WithMany("PostReplies")
+                        .HasForeignKey("PostId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.HasOne("DomainModels.Entities.UserPosts", null)
+                        .WithMany("PostReplies")
+                        .HasForeignKey("UserPostsId");
+
+                    b.Navigation("Parent");
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.ReplyLikes", b =>
+                {
+                    b.HasOne("DomainModels.Entities.PostReplies", "PostReply")
+                        .WithMany("PostLikes")
+                        .HasForeignKey("PostReplyId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("PostReply");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserFriendRequests", b =>
+                {
+                    b.HasOne("DomainModels.Entities.User", "FriendRequestedUser")
+                        .WithMany()
+                        .HasForeignKey("FriendRequestedUserId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("FriendRequestedUser");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserFriends", b =>
+                {
+                    b.HasOne("DomainModels.Entities.User", "Friend")
+                        .WithMany()
+                        .HasForeignKey("FriendId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Friend");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
                 {
                     b.HasOne("DomainModels.Entities.Post", "Post")
@@ -310,7 +561,7 @@ namespace Repository.Migrations
                         .HasForeignKey("PostId");
 
                     b.HasOne("DomainModels.Entities.User", "User")
-                        .WithMany("UserPosts")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Post");
@@ -369,9 +620,23 @@ namespace Repository.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("DomainModels.Entities.User", b =>
+            modelBuilder.Entity("DomainModels.Entities.Post", b =>
                 {
-                    b.Navigation("UserPosts");
+                    b.Navigation("PostLikes");
+
+                    b.Navigation("PostReplies");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.PostReplies", b =>
+                {
+                    b.Navigation("PostLikes");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
+                {
+                    b.Navigation("PostLikes");
+
+                    b.Navigation("PostReplies");
                 });
 #pragma warning restore 612, 618
         }
