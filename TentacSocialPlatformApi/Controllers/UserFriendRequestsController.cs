@@ -45,30 +45,98 @@ namespace TentacSocialPlatformApi.Controllers
 
             try
             {
-                var user = await _context.Users.FindAsync(entity.UserId);
-                var requestUser = await _context.Users.FindAsync(entity.FriendId);
+                var existing = await _context.UserFirendRequests
+                    .Include(r => r.User)
+                    .Include(r => r.FriendRequestedUser)
+                    .Where(r => r.User.Id == entity.UserId && r.FriendRequestedUser.Id == entity.FriendId)
+                    .FirstOrDefaultAsync();
 
-                if (user != null)
+                if (existing == null)
                 {
-                    if (requestUser == null) return BadRequest();
-                    var model = new UserFriendRequests
+                    var user = await _context.Users.FindAsync(entity.UserId);
+                    var requestUser = await _context.Users.FindAsync(entity.FriendId);
+
+                    if (user != null)
                     {
-                        User = user,
-                        FriendRequestedUser = requestUser
-                    };
+                        if (requestUser == null) return BadRequest();
+                        var model = new UserFriendRequests
+                        {
+                            User = user,
+                            FriendRequestedUser = requestUser
+                        };
 
-                    await _repository.Add(model);
+                        await _repository.Add(model);
+                    }
+                    else
+                    {
+                        return BadRequest();
+                    }
                 }
-                else
-                {
-                    return BadRequest();
-                }
+
+                return Ok();
             }
             catch
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
             return Ok(entity);
+        }
+
+        public async override Task<IActionResult> Delete(string id)
+        {
+            var request = await _context.UserFirendRequests
+                .Where(r => r.Id.ToString() == id).FirstOrDefaultAsync();
+            if (request != null)
+            {
+                _context.UserFirendRequests.Remove(request);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpPost("Decline/{id}")]
+        public async Task<IActionResult> Decline(string id)
+        {
+            var request = _context.UserFirendRequests.Where(r => r.Id.ToString() == id).FirstOrDefault();
+
+            if (request != null)
+            {
+                _context.UserFirendRequests.Remove(request);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [HttpPost("Accept/{id}")]
+        public async Task<IActionResult> Accept(string id)
+        {
+            var request = _context.UserFirendRequests
+                .Include(request => request.User)
+                .Include(request => request.FriendRequestedUser)
+                .Where(r => r.Id.ToString() == id)
+                .FirstOrDefault();
+
+            if (request != null)
+            {
+                _context.UserFirendRequests.Remove(request);
+                var user = await _context.Users.Where(u => u.Id == request.User.Id).FirstOrDefaultAsync();
+                var friend = await _context.Users.Where(u => u.Id == request.FriendRequestedUser.Id).FirstOrDefaultAsync();
+                var model = new UserFriends
+                {
+                    Friend = friend,
+                    User = user
+                };
+
+                _context.UserFriends.Add(model);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
     }
 
