@@ -13,5 +13,6 @@ namespace Constants
         public static string DefaultRootPath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\");
         public static string ProfileImagesRootPath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\media\\profiles");
         public static string WallImagesRootPath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\media\\walls");
+        public static string StoryImagesRootPath { get; set; } = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\media\\stories");
     }
 }

@@ -103,6 +103,7 @@ namespace TentacSocialPlatformApi
             services.AddScoped<EfCorePostRepository>();
             services.AddScoped<EfCoreUserFriendRequestsRepository>();
             services.AddScoped<EfCoreUserFriendsRepository>();
+            services.AddScoped<EfCoreUserStoryRepository>();
 
             services.AddSwaggerGen(c =>
             {

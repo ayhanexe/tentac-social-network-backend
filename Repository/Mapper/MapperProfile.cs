@@ -9,6 +9,7 @@ namespace Repository.Mapper
         public MapperProfile()
         {
             CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<Story, StoryDto>().ReverseMap();
             CreateMap<Post, PostDto>().ReverseMap();
             CreateMap<UserFriendRequests, UserFriendRequestDto>().ReverseMap();
             CreateMap<UserFriends, UserFriendDto>().ReverseMap();
