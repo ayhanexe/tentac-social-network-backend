@@ -22,11 +22,9 @@ namespace TentacSocialPlatformApi.Controllers
     [Authorize(AuthenticationSchemes = "Bearer")]
     public class StoryController : BaseController<Story, int, StoryDto, EfCoreUserStoryRepository>
     {
-        private readonly EfCoreUserStoryRepository _repository;
         private readonly AppDbContext _context;
-        public StoryController(EfCoreUserStoryRepository repository, EfCoreUserPostsRepository userPostsRepository, IMapper mapper, AppDbContext context) : base(repository, mapper)
+        public StoryController(EfCoreUserStoryRepository repository, IMapper mapper, AppDbContext context) : base(repository, mapper)
         {
-            _repository = repository;
             _context = context;
         }
 
@@ -76,7 +74,7 @@ namespace TentacSocialPlatformApi.Controllers
                 var story = await _context.Stories.FindAsync(id);
                 var userStory = await _context.UserStories.Where(us => us.StoryId == story.Id).FirstOrDefaultAsync();
 
-                if(story != null)
+                if (story != null)
                 {
                     var path = Path.Combine(ConfigConstants.StoryImagesRootPath, story.Image);
                     var isDeleted = Utils.DeleteFile(path);
@@ -86,7 +84,7 @@ namespace TentacSocialPlatformApi.Controllers
                     }
                 }
 
-                if(userStory != null)
+                if (userStory != null)
                 {
                     _context.UserStories.Remove(userStory);
                 }
