@@ -44,13 +44,15 @@ namespace TentacSocialPlatformApi.Controllers
                         Text = entity.Text
                     };
 
+                    _context.Stories.Add(model);
+
+
                     var userStoryModel = new UserStories
                     {
-                        StoryId = model.Id,
-                        UserId = user.Id
+                        Story = model,
+                        User = user
                     };
 
-                    _context.Stories.Add(model);
                     _context.UserStories.Add(userStoryModel);
 
                     await _context.SaveChangesAsync();
@@ -72,7 +74,10 @@ namespace TentacSocialPlatformApi.Controllers
             try
             {
                 var story = await _context.Stories.FindAsync(id);
-                var userStory = await _context.UserStories.Where(us => us.StoryId == story.Id).FirstOrDefaultAsync();
+                var userStory = await _context.UserStories
+                    .Include(u => u.Story)
+                    .Where(us => us.Story.Id == story.Id)
+                    .FirstOrDefaultAsync();
 
                 if (story != null)
                 {

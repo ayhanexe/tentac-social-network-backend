@@ -24,5 +24,6 @@ namespace DomainModels.Entities
         public string Tel { get; set; }
         public string ProfilePhoto { get; set; }
         public string UserWall { get; set; }
+        public ICollection<UserStories> UserStories { get; set; }
     }
 }

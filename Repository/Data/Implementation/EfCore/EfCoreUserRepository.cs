@@ -19,14 +19,23 @@ namespace Repository.Data.Implementation.EfCore
 
         public override async Task<User> Get(string id)
         {
-            var user = await _context.Users.Where(u => u.Id == id).FirstOrDefaultAsync();
+            var user = await _context.Users
+                .Include(u => u.UserStories)
+                .ThenInclude(u => u.User)
+                .Include(u => u.UserStories)
+                .ThenInclude(u => u.Story)
+                .Where(u => u.Id == id).FirstOrDefaultAsync();
 
             return user;
         }
 
         public override async Task<List<User>> GetAll()
         {
-            return await _context.Users.ToListAsync();
+            return await _context.Users
+                .Include(u => u.UserStories)
+                .ThenInclude(u => u.User)
+                .Include(u => u.UserStories)
+                .ThenInclude(u => u.Story).ToListAsync();
         }
     }
 }

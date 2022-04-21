@@ -166,10 +166,9 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("DomainModels.Entities.Story", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -399,13 +398,17 @@ namespace Repository.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("StoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("StoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("StoryId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserStories");
                 });
@@ -660,6 +663,21 @@ namespace Repository.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("DomainModels.Entities.UserStories", b =>
+                {
+                    b.HasOne("DomainModels.Entities.Story", "Story")
+                        .WithMany()
+                        .HasForeignKey("StoryId");
+
+                    b.HasOne("DomainModels.Entities.User", "User")
+                        .WithMany("UserStories")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Story");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -721,6 +739,11 @@ namespace Repository.Migrations
             modelBuilder.Entity("DomainModels.Entities.PostReplies", b =>
                 {
                     b.Navigation("PostLikes");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.User", b =>
+                {
+                    b.Navigation("UserStories");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>

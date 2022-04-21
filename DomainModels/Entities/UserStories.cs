@@ -8,7 +8,7 @@ namespace DomainModels.Entities
 {
     public class UserStories : BaseEntity<int>
     {
-        public string UserId { get; set; }
-        public int StoryId { get; set; }
+        public User User { get; set; }
+        public Story Story { get; set; }
     }
 }
