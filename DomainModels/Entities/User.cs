@@ -25,5 +25,6 @@ namespace DomainModels.Entities
         public string ProfilePhoto { get; set; }
         public string UserWall { get; set; }
         public ICollection<UserStories> UserStories { get; set; }
+        public ICollection<UserNotification> Notifications { get; set; }
     }
 }

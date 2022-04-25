@@ -24,6 +24,7 @@ namespace Repository.Data.Implementation.EfCore
                 .ThenInclude(u => u.User)
                 .Include(u => u.UserStories)
                 .ThenInclude(u => u.Story)
+                .Include(u => u.Notifications)
                 .Where(u => u.Id == id).FirstOrDefaultAsync();
 
             return user;
@@ -35,7 +36,9 @@ namespace Repository.Data.Implementation.EfCore
                 .Include(u => u.UserStories)
                 .ThenInclude(u => u.User)
                 .Include(u => u.UserStories)
-                .ThenInclude(u => u.Story).ToListAsync();
+                .ThenInclude(u => u.Story)
+                .Include(u => u.Notifications)
+                .ToListAsync();
         }
     }
 }
