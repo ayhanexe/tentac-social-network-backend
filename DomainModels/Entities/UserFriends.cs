@@ -8,7 +8,8 @@ namespace DomainModels.Entities
 {
     public class UserFriends : BaseEntity<int>
     {
-        public User User { get; set; }
-        public User Friend { get; set; }
+        public User UserModel { get; set; }
+        public string User { get; set; }
+        public string Friend { get; set; }
     }
 }

@@ -10,15 +10,15 @@ using Repository.DAL;
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220424140547_addUserModelToUserFriendsModel")]
-    partial class addUserModelToUserFriendsModel
+    [Migration("20220426090410_initialMigration")]
+    partial class initialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.15")
+                .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("DomainModels.Entities.Post", b =>
@@ -362,12 +362,12 @@ namespace Repository.Migrations
                     b.Property<string>("User")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserRelationId")
+                    b.Property<string>("UserModelId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserRelationId");
+                    b.HasIndex("UserModelId");
 
                     b.ToTable("UserFriends");
                 });
@@ -389,7 +389,7 @@ namespace Repository.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserNotifications");
+                    b.ToTable("UserNotification");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
@@ -658,11 +658,11 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("DomainModels.Entities.UserFriends", b =>
                 {
-                    b.HasOne("DomainModels.Entities.User", "UserRelation")
+                    b.HasOne("DomainModels.Entities.User", "UserModel")
                         .WithMany("Friends")
-                        .HasForeignKey("UserRelationId");
+                        .HasForeignKey("UserModelId");
 
-                    b.Navigation("UserRelation");
+                    b.Navigation("UserModel");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.UserNotification", b =>

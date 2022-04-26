@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
 {
-    public partial class initial : Migration
+    public partial class initialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -270,20 +270,35 @@ namespace Repository.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    FriendId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserModelId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    User = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Friend = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_UserFriends", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserFriends_AspNetUsers_FriendId",
-                        column: x => x.FriendId,
+                        name: "FK_UserFriends_AspNetUsers_UserModelId",
+                        column: x => x.UserModelId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserNotification",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserNotification", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserFriends_AspNetUsers_UserId",
+                        name: "FK_UserNotification_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -297,7 +312,7 @@ namespace Repository.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    StoryId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    StoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -306,6 +321,12 @@ namespace Repository.Migrations
                         name: "FK_UserStories_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UserStories_Stories_StoryId",
+                        column: x => x.StoryId,
+                        principalTable: "Stories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -556,13 +577,13 @@ namespace Repository.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserFriends_FriendId",
+                name: "IX_UserFriends_UserModelId",
                 table: "UserFriends",
-                column: "FriendId");
+                column: "UserModelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserFriends_UserId",
-                table: "UserFriends",
+                name: "IX_UserNotification_UserId",
+                table: "UserNotification",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -574,6 +595,11 @@ namespace Repository.Migrations
                 name: "IX_UserPosts_UserId",
                 table: "UserPosts",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserStories_StoryId",
+                table: "UserStories",
+                column: "StoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserStories_UserId",
@@ -605,9 +631,6 @@ namespace Repository.Migrations
                 name: "ReplyLikes");
 
             migrationBuilder.DropTable(
-                name: "Stories");
-
-            migrationBuilder.DropTable(
                 name: "StoryLikes");
 
             migrationBuilder.DropTable(
@@ -623,6 +646,9 @@ namespace Repository.Migrations
                 name: "UserFriends");
 
             migrationBuilder.DropTable(
+                name: "UserNotification");
+
+            migrationBuilder.DropTable(
                 name: "UserStories");
 
             migrationBuilder.DropTable(
@@ -630,6 +656,9 @@ namespace Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "PostReplies");
+
+            migrationBuilder.DropTable(
+                name: "Stories");
 
             migrationBuilder.DropTable(
                 name: "UserPosts");

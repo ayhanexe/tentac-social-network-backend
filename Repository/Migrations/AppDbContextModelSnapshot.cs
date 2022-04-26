@@ -354,17 +354,18 @@ namespace Repository.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FriendId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("Friend")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserModelId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FriendId");
-
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserModelId");
 
                     b.ToTable("UserFriends");
                 });
@@ -386,7 +387,7 @@ namespace Repository.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserNotification");
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
@@ -655,17 +656,11 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("DomainModels.Entities.UserFriends", b =>
                 {
-                    b.HasOne("DomainModels.Entities.User", "Friend")
-                        .WithMany()
-                        .HasForeignKey("FriendId");
+                    b.HasOne("DomainModels.Entities.User", "UserModel")
+                        .WithMany("Friends")
+                        .HasForeignKey("UserModelId");
 
-                    b.HasOne("DomainModels.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Friend");
-
-                    b.Navigation("User");
+                    b.Navigation("UserModel");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.UserNotification", b =>
@@ -772,6 +767,8 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("DomainModels.Entities.User", b =>
                 {
+                    b.Navigation("Friends");
+
                     b.Navigation("Notifications");
 
                     b.Navigation("UserStories");

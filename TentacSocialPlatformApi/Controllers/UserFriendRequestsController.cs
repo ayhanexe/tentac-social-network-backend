@@ -127,11 +127,30 @@ namespace TentacSocialPlatformApi.Controllers
                 var friend = await _context.Users.Where(u => u.Id == request.FriendRequestedUser.Id).FirstOrDefaultAsync();
                 var model = new UserFriends
                 {
-                    Friend = friend,
-                    User = user
+                    UserModel = user,
+                    Friend = friend.Id,
+                    User = user.Id
+                };
+                var friendModel = new UserFriends
+                {
+                    UserModel = friend,
+                    Friend = user.Id,
+                    User = friend.Id,
+                };
+
+                var notification = new UserNotification
+                {
+                    User = friend,
+                    Text = String.Format("Congrats! <b>{0}<b/> accepted user request!",
+                    String.IsNullOrEmpty(user.Name) ||
+                    String.IsNullOrEmpty(user.Surname) ?
+                    $"{user.UserName}" : $"{user.Name} {user.Surname}"
+                    ),
                 };
 
                 _context.UserFriends.Add(model);
+                _context.UserFriends.Add(friendModel);
+                _context.Notifications.Add(notification);
             }
 
             await _context.SaveChangesAsync();

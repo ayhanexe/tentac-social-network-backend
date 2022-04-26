@@ -26,5 +26,6 @@ namespace DomainModels.Entities
         public string UserWall { get; set; }
         public ICollection<UserStories> UserStories { get; set; }
         public ICollection<UserNotification> Notifications { get; set; }
+        public ICollection<UserFriends> Friends { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace Repository.DAL
         public DbSet<PostReplies> PostReplies { get; set; }
         public DbSet<UserFriendRequests> UserFirendRequests { get; set; }
         public DbSet<UserFriends> UserFriends { get; set; }
-
+        public DbSet<UserNotification> Notifications { get; set; }
         public DbSet<Story> Stories { get; set; }
         public DbSet<UserStories> UserStories { get; set; }
         public DbSet<StoryLikes> StoryLikes { get; set; }

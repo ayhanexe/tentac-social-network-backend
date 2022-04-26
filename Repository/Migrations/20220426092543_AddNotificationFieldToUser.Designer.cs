@@ -10,15 +10,15 @@ using Repository.DAL;
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220421105842_addRelationToUserStoriesModel")]
-    partial class addRelationToUserStoriesModel
+    [Migration("20220426092543_AddNotificationFieldToUser")]
+    partial class AddNotificationFieldToUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.15")
+                .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("DomainModels.Entities.Post", b =>
@@ -356,19 +356,40 @@ namespace Repository.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FriendId")
+                    b.Property<string>("Friend")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserModelId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserModelId");
+
+                    b.ToTable("UserFriends");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserNotification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FriendId");
-
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserFriends");
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("DomainModels.Entities.UserPosts", b =>
@@ -637,15 +658,18 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("DomainModels.Entities.UserFriends", b =>
                 {
-                    b.HasOne("DomainModels.Entities.User", "Friend")
-                        .WithMany()
-                        .HasForeignKey("FriendId");
+                    b.HasOne("DomainModels.Entities.User", "UserModel")
+                        .WithMany("Friends")
+                        .HasForeignKey("UserModelId");
 
+                    b.Navigation("UserModel");
+                });
+
+            modelBuilder.Entity("DomainModels.Entities.UserNotification", b =>
+                {
                     b.HasOne("DomainModels.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("Notifications")
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Friend");
 
                     b.Navigation("User");
                 });
@@ -745,6 +769,10 @@ namespace Repository.Migrations
 
             modelBuilder.Entity("DomainModels.Entities.User", b =>
                 {
+                    b.Navigation("Friends");
+
+                    b.Navigation("Notifications");
+
                     b.Navigation("UserStories");
                 });
 
