@@ -10,8 +10,8 @@ using Repository.DAL;
 namespace Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220426092543_AddNotificationFieldToUser")]
-    partial class AddNotificationFieldToUser
+    [Migration("20220427124509_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

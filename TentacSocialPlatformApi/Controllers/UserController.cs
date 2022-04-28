@@ -44,6 +44,20 @@ namespace TentacSocialPlatformApi.Controllers
             return entities;
         }
 
+        [HttpGet("recommendations/{id}")]
+        public async Task<ActionResult<IEnumerable<User>>> GetRecommendations(string id)
+        {
+            var user = await _context.Users.FindAsync(id);
+
+            if (user != null)
+            {
+                List<User> entities = await _userRepository.GetAll();
+                return entities.Where(e => e.Id != id).Take(5).ToList();
+            }
+
+            return BadRequest();
+        }
+
         [HttpGet("{id}")]
         public override async Task<ActionResult<User>> Get(string id)
         {

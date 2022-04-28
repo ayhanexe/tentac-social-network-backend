@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
 {
-    public partial class initialMigration : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -216,6 +216,26 @@ namespace Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Notifications",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notifications", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Notifications_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Posts",
                 columns: table => new
                 {
@@ -280,26 +300,6 @@ namespace Repository.Migrations
                     table.ForeignKey(
                         name: "FK_UserFriends_AspNetUsers_UserModelId",
                         column: x => x.UserModelId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "UserNotification",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserNotification", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_UserNotification_AspNetUsers_UserId",
-                        column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -512,6 +512,11 @@ namespace Repository.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Notifications_UserId",
+                table: "Notifications",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_PostLikes_PostId",
                 table: "PostLikes",
                 column: "PostId");
@@ -582,11 +587,6 @@ namespace Repository.Migrations
                 column: "UserModelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserNotification_UserId",
-                table: "UserNotification",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserPosts_PostId",
                 table: "UserPosts",
                 column: "PostId");
@@ -625,6 +625,9 @@ namespace Repository.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Notifications");
+
+            migrationBuilder.DropTable(
                 name: "PostLikes");
 
             migrationBuilder.DropTable(
@@ -644,9 +647,6 @@ namespace Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserFriends");
-
-            migrationBuilder.DropTable(
-                name: "UserNotification");
 
             migrationBuilder.DropTable(
                 name: "UserStories");
