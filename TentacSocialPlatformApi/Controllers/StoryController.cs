@@ -20,7 +20,7 @@ namespace TentacSocialPlatformApi.Controllers
     [Route("api/Stories")]
     [ApiController]
     [Authorize(AuthenticationSchemes = "Bearer")]
-    public class StoryController : BaseController<Story, int, StoryDto, EfCoreUserStoryRepository>
+    public class StoryController : BaseController<UserStories, int, StoryDto, EfCoreUserStoryRepository>
     {
         private readonly AppDbContext _context;
         public StoryController(EfCoreUserStoryRepository repository, IMapper mapper, AppDbContext context) : base(repository, mapper)
