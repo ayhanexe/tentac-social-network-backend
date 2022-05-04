@@ -73,11 +73,11 @@ namespace TentacSocialPlatformApi.Controllers
         {
             try
             {
-                var story = await _context.Stories.FindAsync(id);
                 var userStory = await _context.UserStories
                     .Include(u => u.Story)
-                    .Where(us => us.Story.Id == story.Id)
+                    .Where(us => us.Id == id)
                     .FirstOrDefaultAsync();
+                var story = await _context.Stories.FindAsync(userStory.Story.Id);
 
                 if (story != null)
                 {

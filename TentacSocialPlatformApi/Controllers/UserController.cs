@@ -20,6 +20,14 @@ using Constants;
 
 namespace TentacSocialPlatformApi.Controllers
 {
+
+    public class RemoveFriendRequest
+    {
+        public string userId { get; set; }
+        public string friendId { get; set; }
+
+    }
+
     [Route("api/[controller]s")]
     [ApiController]
     [Authorize(AuthenticationSchemes = "Bearer")]
@@ -52,7 +60,7 @@ namespace TentacSocialPlatformApi.Controllers
             if (user != null)
             {
                 List<User> entities = await _userRepository.GetAll();
-                return entities.Where(e => e.Id != id).Take(5).ToList();
+                return entities.Where(e => e.Id != id && e.Friends.Where(f => f.Friend == id).Count() == 0).Take(5).ToList();
             }
 
             return BadRequest();
@@ -100,29 +108,20 @@ namespace TentacSocialPlatformApi.Controllers
         public override async Task<IActionResult> Put(string id, [FromBody] User entity, [FromHeader] string token)
         {
             User _entity = await _userRepository.Get(id);
-            var userToken = await _context.UserTokens.Where(ut => ut.UserId == _entity.Id && ut.Value == token).FirstOrDefaultAsync();
 
-            if (userToken != null)
+            if (_entity == null)
             {
-
-                if (_entity == null)
-                {
-                    return NotFound();
-                }
-
-                try
-                {
-                    await _userRepository.Update(id, entity);
-                    return Ok();
-                }
-                catch (Exception exception)
-                {
-                    return BadRequest(exception.Message);
-                }
+                return NotFound();
             }
-            else
+
+            try
             {
-                return BadRequest("Please send valid token with header!");
+                await _userRepository.Update(id, entity);
+                return Ok();
+            }
+            catch (Exception exception)
+            {
+                return BadRequest(exception.Message);
             }
         }
 
@@ -199,6 +198,34 @@ namespace TentacSocialPlatformApi.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
+        }
+
+
+        [HttpPost("deleteFriend")]
+        [Authorize(Roles = "superuser, admin, moderator, user")]
+        public async Task<IActionResult> RemoveFriend([FromBody] RemoveFriendRequest model) {
+            var user = await _context.Users.FindAsync(model.userId);
+            var friend = await _context.Users.FindAsync(model.friendId);
+
+            if (user != null && friend != null)
+            {
+                var userFriendForUser = await _context.UserFriends.Where(uf => uf.User == user.Id && uf.Friend == friend.Id).FirstOrDefaultAsync();
+                var userFriendForFriend = await _context.UserFriends.Where(uf => uf.User == friend.Id && uf.Friend == user.Id).FirstOrDefaultAsync();
+
+                if (userFriendForUser != null)
+                {
+                    _context.UserFriends.Remove(userFriendForUser);
+                }
+
+                if (userFriendForFriend != null)
+                {
+                    _context.UserFriends.Remove(userFriendForFriend);
+                }
+
+                await _context.SaveChangesAsync();
+            }
+
+            return Ok();
         }
     }
 }
